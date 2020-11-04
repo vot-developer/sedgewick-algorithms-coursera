@@ -15,8 +15,8 @@ public class SocialNetworkConnectivityTest {
         snc.union(4,6);
         snc.union(6,2);
         snc.union(3,1);
-        assertEquals(5, snc.getSize(4));
-        snc.union(1,2);
-        assertEquals(7, snc.getSize(6));
+        assertEquals(5, snc.getSize(4));//size of biggest component [0, 2, 4, 5, 6]
+        snc.union(1,2);//union with last component [1, 3] via 2
+        assertEquals(7, snc.getSize(1));//could get size on any element
     }
 }

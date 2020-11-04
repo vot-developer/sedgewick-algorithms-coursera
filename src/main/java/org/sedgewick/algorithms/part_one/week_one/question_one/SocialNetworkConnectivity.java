@@ -30,10 +30,6 @@ public class SocialNetworkConnectivity {
         }
     }
 
-    public boolean isConnected(int a, int b) {
-        return findRoot(a) == findRoot(b);
-    }
-
     public int getSize(int i) {
         return sizes[findRoot(i)];
     }
@@ -44,5 +40,4 @@ public class SocialNetworkConnectivity {
         }
         return i;
     }
-
 }
