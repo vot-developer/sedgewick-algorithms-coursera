@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'org.sedgewick.algorithms'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    testCompile("org.junit.platform:junit-platform-runner:1.7.0")
+}
