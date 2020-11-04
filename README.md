@@ -7,5 +7,6 @@ by www.coursera.org
 
 #### Union−Find
 
-1. [Social network connectivity](https://github.com/GorchakovIgor/sedgewick-algorithms-coursera/org/sedgewick/algorithms/part_one/week_one/question_one)
+1. [Social network connectivity](https://github.com/GorchakovIgor/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_one/question_one)
+
 
