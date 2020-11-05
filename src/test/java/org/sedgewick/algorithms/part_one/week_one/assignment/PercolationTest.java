@@ -36,7 +36,7 @@ class PercolationTest {
     }
 
     @Test
-    void testPercolationWithoutVirtualBottom() {
+    void backwashPproblem() {
         Percolation percolation = new Percolation(3);
 
         percolation.open(1, 1);

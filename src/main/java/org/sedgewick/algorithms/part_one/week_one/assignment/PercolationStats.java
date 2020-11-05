@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    private static double threshold = 1.96;
+    private final double threshold = 1.96;
     private final double mean;
     private final double stddev;
     private final double confidenceLo;
@@ -32,8 +32,6 @@ public class PercolationStats {
         this.stddev = StdStats.stddev(data);
         this.confidenceLo = this.mean - this.stddev * threshold / Math.sqrt(trials);
         this.confidenceHi = this.mean + this.stddev * threshold / Math.sqrt(trials);
-
-        print();
     }
 
     // sample mean of percolation threshold
@@ -56,14 +54,14 @@ public class PercolationStats {
         return confidenceHi;
     }
 
-    private void print() {
-        StdOut.printf("%-23s = %.7f\n", "mean", mean());
-        StdOut.printf("%-23s = %.16f\n", "stddev", stddev());
-        StdOut.printf("%-23s = [%.16f, %.16f]\n", "95% confidence interval", confidenceLo(), confidenceHi());
-    }
-
     // test client (see below)
     public static void main(String[] args) {
-        PercolationStats stats = new PercolationStats(20, 50);
+        PercolationStats ps = new PercolationStats(
+                Integer.parseInt(args[0]),
+                Integer.parseInt(args[1])
+        );
+        StdOut.printf("%-23s = %.7f\n", "mean", ps.mean());
+        StdOut.printf("%-23s = %.16f\n", "stddev", ps.stddev());
+        StdOut.printf("%-23s = [%.16f, %.16f]\n", "95% confidence interval", ps.confidenceLo(), ps.confidenceHi());
     }
 }

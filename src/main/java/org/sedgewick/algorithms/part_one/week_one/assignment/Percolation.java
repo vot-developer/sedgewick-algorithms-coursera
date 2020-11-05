@@ -7,6 +7,7 @@ public class Percolation {
     private final int size;
     private final WeightedQuickUnionUF uf;
     private final int topIndex;
+    private final int bottomIndex;
     private int openCount;
 
     // creates n-by-n grid, with all sites initially blocked
@@ -18,6 +19,7 @@ public class Percolation {
         size = n;
         uf = new WeightedQuickUnionUF(n * n + 2);
         topIndex = n * n;
+        bottomIndex = n * n + 1;
     }
 
     private int index(int row, int col) {
@@ -59,13 +61,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        for (int i = (size - 1) * size; i < size * size; i++ ){
-            if (isOpen[i]){
-                if (uf.find(topIndex) == uf.find(i))
-                    return true;
-            }
-        }
-        return false;
+        return uf.find(topIndex) == uf.find(bottomIndex);
     }
 
     private void validateArguments(int row, int col) {
@@ -78,6 +74,9 @@ public class Percolation {
         int index = index(row, col);
         if (row == 1) {
             uf.union(topIndex, index);
+        }
+        if (row == size) {
+            uf.union(bottomIndex, index);
         }
 
         if (row != 1) {
