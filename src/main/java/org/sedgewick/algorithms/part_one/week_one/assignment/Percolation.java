@@ -9,7 +9,6 @@ public class Percolation {
     private final int topIndex;
     private final int bottomIndex;
     private int openCount;
-    private boolean isPercolates;
 
     // creates n-by-n grid, with all sites initially blocked
     public Percolation(int n) {
@@ -41,10 +40,6 @@ public class Percolation {
         isOpen[index] = true;
 
         unionWithNeighbors(row, col);
-        if (uf.find(topIndex) == uf.find(index) &&
-                uf.find(bottomIndex) == uf.find(index)) {
-            isPercolates = true;
-        }
     }
 
     // is the site (row, col) open?
@@ -66,7 +61,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        return isPercolates;
+        return uf.find(topIndex) == uf.find(bottomIndex);
     }
 
     private void validateArguments(int row, int col) {
