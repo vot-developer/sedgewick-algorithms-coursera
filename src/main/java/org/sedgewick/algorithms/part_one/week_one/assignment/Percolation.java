@@ -6,6 +6,7 @@ public class Percolation {
     private final boolean[] isOpen;
     private final int size;
     private final WeightedQuickUnionUF uf;
+    private final WeightedQuickUnionUF ufOneVirtualSite;
     private final int topIndex;
     private final int bottomIndex;
     private int openCount;
@@ -18,6 +19,7 @@ public class Percolation {
         isOpen = new boolean[n * n];
         size = n;
         uf = new WeightedQuickUnionUF(n * n + 2);
+        ufOneVirtualSite = new WeightedQuickUnionUF(n * n + 1);
         topIndex = n * n;
         bottomIndex = n * n + 1;
     }
@@ -51,7 +53,7 @@ public class Percolation {
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
         validateArguments(row, col);
-        return uf.find(topIndex) == uf.find(index(row, col));
+        return ufOneVirtualSite.find(topIndex) == ufOneVirtualSite.find(index(row, col));
     }
 
     // returns the number of open sites
@@ -74,6 +76,7 @@ public class Percolation {
         int index = index(row, col);
         if (row == 1) {
             uf.union(topIndex, index);
+            ufOneVirtualSite.union(topIndex, index);
         }
         if (row == size) {
             uf.union(bottomIndex, index);
@@ -96,6 +99,7 @@ public class Percolation {
     private void unionIfOpen(int openedIndex, int neighborIndex) {
         if (isOpen[neighborIndex]) {
             uf.union(openedIndex, neighborIndex);
+            ufOneVirtualSite.union(openedIndex, neighborIndex);
         }
     }
 }

@@ -36,7 +36,6 @@ class PercolationTest {
         assertTrue(percolation.percolates());
     }
 
-    @Ignore
     @Test
     void backwashProblem() {
         Percolation percolation = new Percolation(3);
