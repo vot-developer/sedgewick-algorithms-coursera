@@ -9,11 +9,15 @@ sourceCompatibility = 1.11
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://dl.bintray.com/algs4/maven/"
+    }
 }
 
 dependencies {
-    testCompile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-    testCompile("org.junit.platform:junit-platform-runner:1.7.0")
+    compile group: 'edu.princeton.cs', name: 'algs4', version: '1.0.4'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+    testCompile group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.0'
 }
 
 test {
