@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PercolationTest {
 
     @Test
-    void testScenario() {
+    void testBaseScenario() {
         Percolation percolation = new Percolation(3);
 
         percolation.open(1, 1);
@@ -33,5 +33,16 @@ class PercolationTest {
         Percolation percolation = new Percolation(1);
         percolation.open(1, 1);
         assertTrue(percolation.percolates());
+    }
+
+    @Test
+    void testPercolationWithoutVirtualBottom() {
+        Percolation percolation = new Percolation(3);
+
+        percolation.open(1, 1);
+        percolation.open(3, 1);
+        percolation.open(2, 1);
+        percolation.open(3, 3);
+        assertFalse(percolation.isFull(3, 3));
     }
 }
