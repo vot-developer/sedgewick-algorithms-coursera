@@ -22,7 +22,9 @@ by www.coursera.org
 #### Analysis of Algorithms:
 1. [3-SUM in quadratic time.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_one/question_four)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_one/question_four/ThreeSumTest.java))
-2. 
+2. [Search in a bitonic array.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_one/question_five)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_one/question_five/BitonicArrayTest.java))
+
 
 
 
