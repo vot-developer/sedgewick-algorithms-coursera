@@ -3,31 +3,30 @@ package org.sedgewick.algorithms.part_one.week_one.assignment;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    private final boolean[] isOpen;
+    private final byte[] states;
     private final int size;
     private final WeightedQuickUnionUF uf;
-    private final WeightedQuickUnionUF ufOneVirtualSite;
-    private final int topIndex;
-    private final int bottomIndex;
     private int openCount;
+    private boolean isPercolates;
+
+    private class State {
+        private static final byte OPEN = 1; // 0b001
+        private static final byte BORDER = 2; // 0b010
+        private static final byte FULL = 4; // 0b100
+    }
 
     // creates n-by-n grid, with all sites initially blocked
     public Percolation(int n) {
         if (n < 1)
             throw new IllegalArgumentException("By convention, the row and column indices are integers between 1 and n");
 
-        isOpen = new boolean[n * n];
+        states = new byte[n * n];
         size = n;
-        uf = new WeightedQuickUnionUF(n * n + 2);
-        ufOneVirtualSite = new WeightedQuickUnionUF(n * n + 1);
-        topIndex = n * n;
-        bottomIndex = n * n + 1;
+        uf = new WeightedQuickUnionUF(n * n);
     }
 
     private int index(int row, int col) {
-        row--;
-        col--;
-        return row * size + col;
+        return --row * size + --col;
     }
 
     // opens the site (row, col) if it is not open already
@@ -35,25 +34,32 @@ public class Percolation {
         validateArguments(row, col);
         int index = index(row, col);
 
-        if (isOpen[index])
+        if (states[index] >= State.OPEN)
             return;
 
         openCount++;
-        isOpen[index] = true;
+        states[index] = State.OPEN;
 
-        unionWithNeighbors(row, col);
+        if (row == 1)
+            states[index] |= State.FULL;
+
+        if (row == size)
+            states[index] |= State.BORDER;
+
+        unionNeighbors(row, col);
     }
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
         validateArguments(row, col);
-        return isOpen[index(row, col)];
+        return states[index(row, col)] >= State.OPEN;
     }
 
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
         validateArguments(row, col);
-        return ufOneVirtualSite.find(topIndex) == ufOneVirtualSite.find(index(row, col));
+        int index = index(row, col);
+        return states[index] >= State.OPEN && states[uf.find(index)] >= State.FULL;
     }
 
     // returns the number of open sites
@@ -63,7 +69,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        return uf.find(topIndex) == uf.find(bottomIndex);
+        return isPercolates;
     }
 
     private void validateArguments(int row, int col) {
@@ -72,34 +78,37 @@ public class Percolation {
         }
     }
 
-    private void unionWithNeighbors(int row, int col) {
+    private void unionNeighbors(int row, int col) {
         int index = index(row, col);
-        if (row == 1) {
-            uf.union(topIndex, index);
-            ufOneVirtualSite.union(topIndex, index);
-        }
-        if (row == size) {
-            uf.union(bottomIndex, index);
-        }
 
+        byte cumulativeState = 0;
         if (row != 1) {
-            unionIfOpen(index, index(row - 1, col));
+            cumulativeState |= union(index, index(row - 1, col));
         }
         if (row != size) {
-            unionIfOpen(index, index(row + 1, col));
+            cumulativeState |= union(index, index(row + 1, col));
         }
         if (col != 1) {
-            unionIfOpen(index, index(row, col - 1));
+            cumulativeState |= union(index, index(row, col - 1));
         }
         if (col != size) {
-            unionIfOpen(index, index(row, col + 1));
+            cumulativeState |= union(index, index(row, col + 1));
         }
+
+        int rootIndex = uf.find(index);
+        cumulativeState |= (byte) (states[rootIndex] | states[index]);
+        states[rootIndex] = cumulativeState;
+
+        if (states[rootIndex] >= (State.BORDER | State.FULL))
+            isPercolates = true;
     }
 
-    private void unionIfOpen(int openedIndex, int neighborIndex) {
-        if (isOpen[neighborIndex]) {
-            uf.union(openedIndex, neighborIndex);
-            ufOneVirtualSite.union(openedIndex, neighborIndex);
+    private byte union(int index, int neighborIndex) {
+        if (states[neighborIndex] >= State.OPEN) {
+            int previousRootIndex = uf.find(neighborIndex);
+            uf.union(index, neighborIndex);
+            return states[previousRootIndex];
         }
+        return 0;
     }
 }
