@@ -1,4 +1,4 @@
-package org.sedgewick.algorithms.part_one.week_one.assignment;
+package org.sedgewick.algorithms.part_one.week_one.assignment_one;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
