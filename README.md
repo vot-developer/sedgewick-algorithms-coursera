@@ -33,5 +33,7 @@ by www.coursera.org
 #### Stacks and Queues
 
 ###### Interview Questions:
+1. [Queue with two stacks.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_one)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_one.TwoStackQueueTest))
 
 
