@@ -38,5 +38,8 @@ by www.coursera.org
 2. [Stack with max.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_two)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_two/question_two/StackWithMaxTest.java))
 
+###### Programming Assignment: 
+[Deques and Randomized Queues.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_one/assignment_two)
+
 
 
