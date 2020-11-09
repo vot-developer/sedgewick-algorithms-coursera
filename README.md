@@ -34,6 +34,9 @@ by www.coursera.org
 
 ###### Interview Questions:
 1. [Queue with two stacks.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_one)
-([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_one.TwoStackQueueTest))
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_one/TwoStackQueueTest.java))
+2. [Stack with max.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_two)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_two/StackWithMaxTest.java))
+
 
 
