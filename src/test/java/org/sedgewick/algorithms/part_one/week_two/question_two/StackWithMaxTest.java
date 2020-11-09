@@ -9,11 +9,12 @@ class StackWithMaxTest {
     @Test
     void getMax() {
         StackWithMax stack = new StackWithMax();
-        stack.push(2);
+        stack.push(1);
+        stack.push(0);
         stack.push(3);
         assertEquals(3, stack.getMax());
         assertEquals(3, stack.pop());
-        assertEquals(2, stack.getMax());
-        assertEquals(2, stack.top());
+        assertEquals(1, stack.getMax());
+        assertEquals(0, stack.top());
     }
 }

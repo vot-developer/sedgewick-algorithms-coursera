@@ -33,6 +33,7 @@ public class StackWithMax {
             topMax = node;
         } else {
             node = new Node(top, prevMax, nextMax, value);
+            top = node;
             prevMax.next = node;
         }
     }
@@ -44,12 +45,18 @@ public class StackWithMax {
 
         Node prevTop = top;
         top = prevTop.next;
+
         Node prevMax = prevTop.prevMax;
-        if (prevMax == null) {
-            topMax = top;
+        Node nextMax = prevTop.nextMax;
+        if (prevMax == null){
+            topMax = nextMax;
         } else {
-            prevMax.nextMax = top.nextMax;
+            prevMax.nextMax = prevTop.nextMax;
+            if (nextMax!= null){
+                nextMax.prevMax = prevTop.prevMax;
+            }
         }
+
         return prevTop.value;
     }
 
