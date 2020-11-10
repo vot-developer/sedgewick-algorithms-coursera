@@ -1,11 +1,14 @@
 package org.sedgewick.algorithms.part_one.week_two.assigment_one;
 
+import edu.princeton.cs.algs4.StdRandom;
+
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
-    private static final int DEFAULT_SIZE = 10;
+    private static final int DEFAULT_SIZE = 2;
     private final Random random;
     private Item[] items;
     private int size;
@@ -30,21 +33,17 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public void enqueue(Item item) {
         validateIncomingItem(item);
         increaseSizeByNecessity();
-        if (size == 0) {
-            items[size++] = item;
-        } else {
-            int index = random.nextInt(size);
-            Item savedItem = items[index];
-            items[index] = item;
-            items[size++] = savedItem;
-        }
+        items[size++] = item;
     }
 
     // remove and return a random item
     public Item dequeue() {
         validateOutcomingItem();
         shrinkSizeByNecessity();
-        Item item = items[--size];
+
+        int index = random.nextInt(size);
+        Item item = items[index];
+        items[index] = items[--size];
         items[size] = null;
         return item;
     }
@@ -53,21 +52,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public Item sample() {
         validateOutcomingItem();
         return items[random.nextInt(size)];
-    }
-
-    // unit testing (required)
-    public static void main(String[] args) {
-        RandomizedQueue<Integer> queue = new RandomizedQueue<Integer>();
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-        queue.enqueue(4);
-        System.out.println(queue.sample());
-        System.out.println(queue.sample());
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
     }
 
     @Override
@@ -84,7 +68,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private void shrinkSizeByNecessity() {
-        if (size() > 2 * DEFAULT_SIZE && size() < 0.25 * items.length) {
+        if (size() > 0 && size() < 0.25 * items.length) {
             Item[] newItems = (Item[]) new Object[items.length / 2];
             System.arraycopy(items, 0, newItems, 0, newItems.length);
             this.items = newItems;
@@ -102,16 +86,29 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private class RandomizedQueueIterator implements Iterator<Item> {
+        private final Item[] data;
         private int step;
+
+        public RandomizedQueueIterator() {
+            this.data = (Item[]) new Object[size];
+            System.arraycopy(items, 0, this.data, 0, size);
+            StdRandom.shuffle(data);
+        }
 
         @Override
         public boolean hasNext() {
-            return step != size;
+            return step != data.length;
         }
 
         @Override
         public Item next() {
-            return items[step++];
+            if (!hasNext())
+                throw new NoSuchElementException();
+
+            if (this.data.length != RandomizedQueue.this.size)
+                throw new ConcurrentModificationException();
+
+            return data[step++];
         }
 
         @Override
