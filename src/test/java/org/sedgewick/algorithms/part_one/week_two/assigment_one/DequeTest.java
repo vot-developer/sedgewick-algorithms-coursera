@@ -2,6 +2,7 @@ package org.sedgewick.algorithms.part_one.week_two.assigment_one;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -71,6 +72,16 @@ class DequeTest {
         for (Integer i : deque){
             sb.append(i);
         }
-        assertEquals("213", sb.toString());
+        assertEquals("312", sb.toString());
+    }
+
+    @Test
+    void testIteratorPlain() {
+        Deque<Integer> deque = new Deque<>();
+        deque.addLast(1);
+        Iterator<Integer> it = deque.iterator();
+        assertTrue(it.hasNext());
+        assertEquals(1, it.next());
+        assertFalse(it.hasNext());
     }
 }

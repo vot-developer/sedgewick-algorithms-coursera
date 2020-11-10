@@ -37,9 +37,13 @@ public class Deque<Item> implements Iterable<Item> {
     // add the item to the front
     public void addFirst(Item item) {
         validateIncomingItem(item);
-        if (size == 0){
-            head = new Node(item, tail, head);
+        if (size == 0) {
+            head = new Node(item, null, null);
             tail = head;
+            head.next = tail;
+            head.prev = tail;
+            tail.next = head;
+            tail.prev = head;
         } else {
             Node prevHead = head;
             head = new Node(item, tail, prevHead);
@@ -52,9 +56,13 @@ public class Deque<Item> implements Iterable<Item> {
     // add the item to the back
     public void addLast(Item item) {
         validateIncomingItem(item);
-        if (size == 0){
-            tail = new Node(item, tail, head);
+        if (size == 0) {
+            tail = new Node(item, null, null);
             head = tail;
+            head.next = tail;
+            head.prev = tail;
+            tail.next = head;
+            tail.prev = head;
         } else {
             Node prevTail = tail;
             tail = new Node(item, prevTail, head);
@@ -103,7 +111,12 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-
+        Deque<Integer> deque = new Deque<>();
+        deque.addLast(1);
+        Iterator<Integer> it = deque.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
 
     private void validateIncomingItem(Item item) {
@@ -121,7 +134,7 @@ public class Deque<Item> implements Iterable<Item> {
         private int step;
 
         public DequeIterator() {
-            current = head;// iterator from tail to head. head not first step, first step will be head.next i.e. tail
+            current = tail;// iterator from head to tail. tail not first step, first step will be tail.prev i.e. head
             step = 0;
         }
 
@@ -132,7 +145,11 @@ public class Deque<Item> implements Iterable<Item> {
 
         @Override
         public Item next() {
-            current = current.next;
+            if (!hasNext()) {
+                throw new NoSuchElementException();// by specification
+            }
+
+            current = current.prev;
             step++;
             return current.value;
         }
