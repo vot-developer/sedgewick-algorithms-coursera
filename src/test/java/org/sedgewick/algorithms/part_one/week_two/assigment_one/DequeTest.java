@@ -19,6 +19,8 @@ class DequeTest {
         assertEquals(1, deque.removeFirst());
         assertEquals(2, deque.removeFirst());
         assertEquals(1, deque.size());
+        assertEquals(3, deque.removeFirst());
+        assertEquals(0, deque.size());
     }
 
     @Test
@@ -56,5 +58,19 @@ class DequeTest {
         assertThrows(NoSuchElementException.class, () -> {
             deque.removeLast();
         });
+    }
+
+    @Test
+    void iteratorTest() {
+        Deque<Integer> deque = new Deque<>();
+        assertTrue(deque.isEmpty());
+        deque.addLast(1);
+        deque.addLast(2);
+        deque.addFirst(3);
+        StringBuilder sb = new StringBuilder();
+        for (Integer i : deque){
+            sb.append(i);
+        }
+        assertEquals("213", sb.toString());
     }
 }
