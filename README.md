@@ -53,3 +53,10 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_two/question_six/DutchNationalFlagTest.java))
 
 
+### Week 3
+
+#### Mergesort 
+
+###### Interview Questions:
+1. [Merging with smaller auxiliary array.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/question_one)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/question_one/MergeSortedArraysWithLimitTest.java))
