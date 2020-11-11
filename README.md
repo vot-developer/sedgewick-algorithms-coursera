@@ -42,4 +42,10 @@ by www.coursera.org
 [Deques and Randomized Queues.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/assigment_one)
 ([Deque Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_two/assigment_one/DequeTest.java))
 
+#### Elementary Sorts
+
+###### Interview Questions:
+1. [Intersection of two sets.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_four)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_two/question_four/IntersectionTwoSetsTest.java))
+
 
