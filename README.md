@@ -55,8 +55,10 @@ by www.coursera.org
 
 ### Week 3
 
-#### Mergesort 
+#### MergeSort 
 
 ###### Interview Questions:
 1. [Merging with smaller auxiliary array.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/question_one)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/question_one/MergeSortedArraysWithLimitTest.java))
+2. [Counting inversions.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/question_two)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/question_two/CountInversionsTest.java))
