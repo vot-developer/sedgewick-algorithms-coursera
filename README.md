@@ -27,7 +27,6 @@ by www.coursera.org
 3. [Egg drop.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_one/question_six)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_one/question_six/EggDropTest.java))
 
-
 ### Week 2
 
 #### Stacks and Queues
@@ -52,7 +51,6 @@ by www.coursera.org
 3. [Dutch national flag.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_two/question_six)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_two/question_six/DutchNationalFlagTest.java))
 
-
 ### Week 3
 
 #### MergeSort 
@@ -64,3 +62,6 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/question_two/CountInversionsTest.java))
 3. [Shuffling a linked list.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/question_three)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/question_three/ShufflingLinkedListTest.java))
+
+###### Programming Assignment: 
+[Collinear points.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/assigment_one)
