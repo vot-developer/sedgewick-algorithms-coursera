@@ -88,14 +88,7 @@ public class Point implements Comparable<Point> {
      * @return the Comparator that defines this ordering on points
      */
     public Comparator<Point> slopeOrder() {
-        return new SlopeComparator();
-    }
-
-    private class SlopeComparator implements Comparator<Point> {
-        @Override
-        public int compare(Point o1, Point o2) {
-            return Double.compare(slopeTo(o1), slopeTo(o2));
-        }
+        return Comparator.comparingDouble(this::slopeTo);
     }
 
     /**
@@ -109,6 +102,8 @@ public class Point implements Comparable<Point> {
         /* DO NOT MODIFY */
         return "(" + x + ", " + y + ")";
     }
+
+
 
     /**
      * Unit tests the Point data type.

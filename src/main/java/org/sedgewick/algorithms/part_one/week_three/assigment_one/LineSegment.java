@@ -7,10 +7,10 @@ public class LineSegment {
     /**
      * Initializes a new line segment.
      *
-     * @param  p one endpoint
-     * @param  q the other endpoint
+     * @param p one endpoint
+     * @param q the other endpoint
      * @throws NullPointerException if either <tt>p</tt> or <tt>q</tt>
-     *         is <tt>null</tt>
+     *                              is <tt>null</tt>
      */
     public LineSegment(Point p, Point q) {
         if (p == null || q == null) {
@@ -50,5 +50,4 @@ public class LineSegment {
     public int hashCode() {
         throw new UnsupportedOperationException();
     }
-
 }

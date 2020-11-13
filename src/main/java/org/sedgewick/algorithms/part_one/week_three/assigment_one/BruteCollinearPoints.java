@@ -8,21 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BruteCollinearPoints {
-    private final Point[] points;
     private LineSegment[] segments;
-    private List<LineSegment> lines = new ArrayList<>();
 
     // finds all line segments containing 4 points
     public BruteCollinearPoints(Point[] points) {
-        if (points == null)
-            throw new IllegalArgumentException("argument can't be null");
-        for (Point p : points){
-            if (p == null)
-                throw new IllegalArgumentException("Any point in argument can't be null");
-        }
+        validate(points);
 
-        this.points = points;
-        doCalculations();
+        doCalculations(points);
     }
 
     // the number of line segments
@@ -31,22 +23,23 @@ public class BruteCollinearPoints {
     }
 
     // the line segments
-    public LineSegment[] segments(){
+    public LineSegment[] segments() {
         return segments;
     }
 
-    private void doCalculations(){
-        for (int i = 0; i < points.length; i++){
+    private void doCalculations(Point[] points) {
+        List<LineSegment> lines = new ArrayList<>();
+        for (int i = 0; i < points.length; i++) {
             Point p = points[i];
-            for (int j = i + 1; j < points.length; j++){
+            for (int j = i + 1; j < points.length; j++) {
                 Point q = points[j];
-                for (int k = j + 1; k < points.length; k++){
+                for (int k = j + 1; k < points.length; k++) {
                     Point r = points[k];
-                    for (int l = k + 1; l < points.length; l++){
+                    for (int l = k + 1; l < points.length; l++) {
                         Point s = points[l];
                         double pToQ = p.slopeTo(q);
-                        if (pToQ == p.slopeTo(r) && pToQ == p.slopeTo(s)){
-                            addLine(p, q, r, s);
+                        if (pToQ == p.slopeTo(r) && pToQ == p.slopeTo(s)) {
+                            addLine(p, q, r, s, lines);
                         }
                     }
                 }
@@ -57,44 +50,25 @@ public class BruteCollinearPoints {
         lines.toArray(segments);
     }
 
-    private void addLine(Point p, Point q, Point r, Point s){
-        Point[] points = new Point[]{p, q, r, s};
-        Arrays.sort(new Point[]{p, q, r, s}, p.slopeOrder());
-        lines.add(new LineSegment(points[0], points[3]));
+    private void validate(Point[] points) {
+        if (points == null)
+            throw new IllegalArgumentException("argument can't be null");
+        for (Point p : points) {
+            if (p == null)
+                throw new IllegalArgumentException("Any point in argument can't be null");
+        }
+
+        Point[] clones = points.clone();
+        Arrays.sort(clones);
+        for (int i = 1, n = clones.length; i < n; i++) {
+            if (clones[i].compareTo(clones[i - 1]) == 0)
+                throw new IllegalArgumentException("Any point in argument can't be equal");
+        }
     }
 
-    public static void main(String[] args) {
-        Point[] points = new Point[]{
-                new Point(3, 3),
-                new Point(3, 2),
-                new Point(1, 1),
-                new Point(1, 2),
-                new Point(2, 2),
-                new Point(0, 0),
-                new Point(0, 4),
-                new Point(3, 7)
-        };
-        BruteCollinearPoints bruteCollinearPoints = new BruteCollinearPoints(points);
-        System.out.println(bruteCollinearPoints.numberOfSegments());
-        System.out.println(bruteCollinearPoints);
-
-        // draw the points
-        StdDraw.enableDoubleBuffering();
-//        StdDraw.setXscale(0, 32768);
-//        StdDraw.setYscale(0, 32768);
-        StdDraw.setXscale(0, 10);
-        StdDraw.setYscale(0, 10);
-        for (Point p : points) {
-            p.draw();
-        }
-        StdDraw.show();
-
-        // print and draw the line segments
-        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
-        for (LineSegment segment : collinear.segments()) {
-            StdOut.println(segment);
-            segment.draw();
-        }
-        StdDraw.show();
+    private void addLine(Point p, Point q, Point r, Point s, List<LineSegment> lines) {
+        Point[] points = new Point[]{p, q, r, s};
+        Arrays.sort(points);
+        lines.add(new LineSegment(points[0], points[3]));
     }
 }
