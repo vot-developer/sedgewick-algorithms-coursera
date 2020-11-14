@@ -32,7 +32,7 @@ public class FastCollinearPoints {
             Arrays.sort(clones, origin.slopeOrder());
             for (int i = 3; i < clones.length; i++) {// 3 - because p - is always first and we will ignore it!
                 if (origin.slopeTo(clones[i]) == origin.slopeTo(clones[i - 2])) {
-                    i = detectLine(clones, i - 2, origin, origin.slopeTo(clones[i - 2]), lines);
+                    i = detectPointsForLine(clones, i - 2, origin, origin.slopeTo(clones[i - 2]), lines);
                 }
             }
         }
@@ -41,7 +41,7 @@ public class FastCollinearPoints {
         lines.toArray(segments);
     }
 
-    private int detectLine(Point[] points, int i, Point origin, double slope, List<LineSegment> lines) {
+    private int detectPointsForLine(Point[] points, int i, Point origin, double slope, List<LineSegment> lines) {
         int start = i;
         i += 3; // 3 already have same slope
         for (; i < points.length; i++){
@@ -49,12 +49,18 @@ public class FastCollinearPoints {
                 break;
             }
         }
-        Point[] line = new Point[i - start + 1];
-        line[0] = origin;
-        System.arraycopy(points, start, line, 1, i - start);
-        Arrays.sort(line);
-        if (line[0].compareTo(origin) == 0) { // ignore doubles, add only if p is minimum
-            lines.add(new LineSegment(line[0], line[line.length - 1]));
+        Point min = origin;
+        Point max = origin;
+        for (int j = start; j < i; j++){
+            if (points[j].compareTo(min) < 0)
+                min = points[j];
+
+            if (points[j].compareTo(max) > 0)
+                max = points[j];
+        }
+
+        if (min.compareTo(origin) == 0) { // ignore doubles, add only if p is minimum
+            lines.add(new LineSegment(min, max));
         }
         return i + 1; //i - don't included in line and need check in loop, in loop will be ++ (will +2) and finally check (i+2) - 2
     }
