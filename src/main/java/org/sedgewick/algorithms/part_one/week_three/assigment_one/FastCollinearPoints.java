@@ -1,8 +1,5 @@
 package org.sedgewick.algorithms.part_one.week_three.assigment_one;
 
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,20 +22,17 @@ public class FastCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
-        return segments;
+        return segments.clone();
     }
 
     private void doCalculations(Point[] points) {
         List<LineSegment> lines = new ArrayList<>();
-        for (int i = 0; i < points.length; i++) {
-            Point p = points[i];
-            Point[] clones = new Point[points.length - 1];
-            System.arraycopy(points, 0, clones, 0, i);
-            System.arraycopy(points, i + 1, clones, i, points.length - i - 1);
-            Arrays.sort(clones, p.slopeOrder());
-            for (int j = 2; j < clones.length; j++) {
-                if (p.slopeTo(clones[j]) == p.slopeTo(clones[j - 2])) {
-                    addLine(p, clones[j], clones[j - 1], clones[j - 2], lines);
+        Point[] clones = points.clone();
+        for (Point origin : points) {
+            Arrays.sort(clones, origin.slopeOrder());
+            for (int i = 3; i < clones.length; i++) {// 3 - because p - is always first and we will ignore it!
+                if (origin.slopeTo(clones[i]) == origin.slopeTo(clones[i - 2])) {
+                    i = detectLine(clones, i - 2, origin, origin.slopeTo(clones[i - 2]), lines);
                 }
             }
         }
@@ -47,10 +41,22 @@ public class FastCollinearPoints {
         lines.toArray(segments);
     }
 
-    private void addLine(Point p, Point q, Point r, Point s, List<LineSegment> lines) {
-        Point[] points = new Point[]{p, q, r, s};
-        Arrays.sort(points);
-        lines.add(new LineSegment(points[0], points[3]));
+    private int detectLine(Point[] points, int i, Point origin, double slope, List<LineSegment> lines) {
+        int start = i;
+        i += 3; // 3 already have same slope
+        for (; i < points.length; i++){
+            if (origin.slopeTo(points[i]) != slope){
+                break;
+            }
+        }
+        Point[] line = new Point[i - start + 1];
+        line[0] = origin;
+        System.arraycopy(points, start, line, 1, i - start);
+        Arrays.sort(line);
+        if (line[0].compareTo(origin) == 0) { // ignore doubles, add only if p is minimum
+            lines.add(new LineSegment(line[0], line[line.length - 1]));
+        }
+        return i + 1; //i - don't included in line and need check in loop, in loop will be ++ (will +2) and finally check (i+2) - 2
     }
 
     private void validate(Point[] points) {
@@ -61,42 +67,11 @@ public class FastCollinearPoints {
                 throw new IllegalArgumentException("Any point in argument can't be null");
         }
 
-        Arrays.sort(points);
-        for (int i = 1, n = points.length; i < n; i++) {
-            if (points[i].compareTo(points[i - 1]) == 0)
+        Point[] clones = points.clone();
+        Arrays.sort(clones);
+        for (int i = 1, n = clones.length; i < n; i++) {
+            if (clones[i].compareTo(clones[i - 1]) == 0)
                 throw new IllegalArgumentException("Any point in argument can't be equal");
         }
-    }
-
-    public static void main(String[] args) {
-        Point[] points = new Point[]{
-                new Point(3, 3),
-                new Point(3, 2),
-                new Point(1, 1),
-                new Point(1, 2),
-                new Point(2, 2),
-                new Point(0, 0),
-                new Point(0, 4),
-                new Point(3, 7)
-        };
-        FastCollinearPoints collinear = new FastCollinearPoints(points);
-        System.out.println(collinear.numberOfSegments());
-        System.out.println(collinear);
-
-        // draw the points
-        StdDraw.enableDoubleBuffering();
-        StdDraw.setXscale(0, 10);
-        StdDraw.setYscale(0, 10);
-        for (Point p : points) {
-            p.draw();
-        }
-        StdDraw.show();
-
-        // print and draw the line segments
-        for (LineSegment segment : collinear.segments()) {
-            StdOut.println(segment);
-            segment.draw();
-        }
-        StdDraw.show();
     }
 }

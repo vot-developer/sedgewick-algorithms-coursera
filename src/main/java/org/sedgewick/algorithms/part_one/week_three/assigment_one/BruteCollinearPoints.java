@@ -1,8 +1,5 @@
 package org.sedgewick.algorithms.part_one.week_three.assigment_one;
 
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,21 +21,22 @@ public class BruteCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
-        return segments;
+        return segments.clone();
     }
 
     private void doCalculations(Point[] points) {
         List<LineSegment> lines = new ArrayList<>();
-        for (int i = 0; i < points.length; i++) {
+        int n = points.length;
+        for (int i = 0; i < n - 3; i++) {
             Point p = points[i];
-            for (int j = i + 1; j < points.length; j++) {
+            for (int j = i + 1; j < n - 2; j++) {
                 Point q = points[j];
-                for (int k = j + 1; k < points.length; k++) {
+                for (int k = j + 1; k < n - 1; k++) {
                     Point r = points[k];
-                    for (int l = k + 1; l < points.length; l++) {
+                    for (int l = k + 1; l < n; l++) {
                         Point s = points[l];
-                        double pToQ = p.slopeTo(q);
-                        if (pToQ == p.slopeTo(r) && pToQ == p.slopeTo(s)) {
+                        double pq = p.slopeTo(q);
+                        if (pq == p.slopeTo(r) && pq == p.slopeTo(s)) {
                             addLine(p, q, r, s, lines);
                         }
                     }
