@@ -65,3 +65,4 @@ by www.coursera.org
 
 ###### Programming Assignment: 
 [Collinear points.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/assigment_one)
+([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/assigment_one/)
