@@ -1,4 +1,4 @@
-package org.sedgewick.algorithms.part_one.week_three.qustion_four;
+package org.sedgewick.algorithms.part_one.week_three.question_four;
 
 public class NutsAndBolts {
 
