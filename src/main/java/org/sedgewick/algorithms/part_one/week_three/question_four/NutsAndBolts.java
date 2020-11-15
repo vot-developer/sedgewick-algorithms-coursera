@@ -13,12 +13,12 @@ public class NutsAndBolts {
         if (start >= end)
             return;
 
-        int newPivotIndex = swapAroundPivot(bolts, start, end, nuts[pivotIndex]);
+        int newPivotIndex = swapAroundPivot(bolts, start, end, nuts[pivotIndex]); // swap around pivot (value from nuts)
         if (newPivotIndex == -1)
             throw new IllegalArgumentException();
 
         swap(nuts, pivotIndex, newPivotIndex);
-        swapAroundPivot(nuts, start, end, nuts[newPivotIndex]);
+        swapAroundPivot(nuts, start, end, nuts[newPivotIndex]); // we do swap around same value (nut and bolt fit) in both arrays
 
         sort(bolts, nuts, start, newPivotIndex - 1, start);
         sort(bolts, nuts, newPivotIndex + 1, end, newPivotIndex + 1);
