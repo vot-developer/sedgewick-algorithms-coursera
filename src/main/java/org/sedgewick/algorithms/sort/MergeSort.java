@@ -20,29 +20,30 @@ public class MergeSort {
         mergeSortedArrays(auxiliary, array, start, mid, end); //optimization - cut down one copy by switch arrays
     }
 
-    private void mergeSortedArrays(Comparable[] auxiliary, Comparable[] array, int start, int mid, int end) {
-        if (mid + 1 <= end && !isLess(auxiliary[mid + 1], auxiliary[mid])) //already sorted
+    private void mergeSortedArrays(Comparable[] array, Comparable[] auxiliary, int start, int mid, int end) {
+        if (mid + 1 <= end && !isLess(array[mid + 1], array[mid])) //already sorted
             return;
 
         int length = end - start + 1;
         // using insertion sort on small arrays
         if (length < 7) {
-            insertionSort(auxiliary, array, start, mid, end, length);
+            insertionSort(array, auxiliary, start, mid, end, length);
+            return;
         }
 
+        System.arraycopy(array, start, auxiliary, start, length);
         int i = start;
         int j = mid + 1;
-        for (int k = start; k <= end; k++) {
-            if ((j > end) || (i <= mid) && isLess(auxiliary[i], auxiliary[j])) {
-                array[k] = auxiliary[i++];
+        for (int k = 0; k < length; k++) {
+            if ((j > end) || (i <= mid) && isLess(array[i], array[j])) {
+                auxiliary[k] = array[i++];
             } else {
-                array[k] = auxiliary[j++];
+                auxiliary[k] = array[j++];
             }
         }
-        System.arraycopy(array, start, auxiliary, start, length);
     }
 
-    private void insertionSort(Comparable[] auxiliary, Comparable[] array, int start, int mid, int end, int length) {
+    private void insertionSort(Comparable[] array, Comparable[] auxiliary, int start, int mid, int end, int length) {
         for (int i = start; i <= end; i++)
             for (int j = i; j > start && isLess(array[j], array[j - 1]); j--)
                 swap(array, j, j - 1);
