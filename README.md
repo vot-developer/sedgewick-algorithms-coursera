@@ -65,4 +65,10 @@ by www.coursera.org
 
 ###### Programming Assignment: 
 [Collinear points.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/assigment_one)
-([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/assigment_one/)
+([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/assigment_one/))
+
+#### QuickSort 
+
+###### Interview Questions:
+1. [Nuts and bolts.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_three/question_four)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_three/question_four/NutsAndBoltsTest.java))
