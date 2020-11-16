@@ -4,7 +4,7 @@ public class SelectionInTwoSortedArrays {
 
     /**
      * O(log(n1+n2))
-     * worst case ~ O(n)
+     * worst case ~ O(n) with duplicates only
      */
     public int select(int[] num1, int[] num2, int k) {
         if (k <= 0 || num1 == null || num2 == null || num1.length + num2.length == 0)

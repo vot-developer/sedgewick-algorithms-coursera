@@ -2,14 +2,14 @@ package org.sedgewick.algorithms.part_one.week_three.question_four;
 
 public class NutsAndBolts {
 
-    public void sortOut(int [] nuts, int [] bolts){
+    public void sortOut(int[] nuts, int[] bolts) {
         if (nuts == null || nuts.length == 0 || bolts == null || bolts.length == 0 || nuts.length != bolts.length)
             return;
 
         sort(bolts, nuts, 0, bolts.length - 1, 0);
     }
 
-    private void sort(int[] bolts, int[] nuts, int start, int end, int pivotIndex){
+    private void sort(int[] bolts, int[] nuts, int start, int end, int pivotIndex) {
         if (start >= end)
             return;
 
@@ -24,33 +24,22 @@ public class NutsAndBolts {
         sort(bolts, nuts, newPivotIndex + 1, end, newPivotIndex + 1);
     }
 
-    private int swapAroundPivot(int[] a, int start, int end, int pivot){
+    private int swapAroundPivot(int[] a, int start, int end, int pivot) {
         int i = start;
         int j = end;
-        int newPivotIndex = -1;
 
-        while(true){
-            while (a[i] < pivot){
-                if (i >= end || a[i] == pivot) break;
-                i++;
-            }
-
-            while (a[j] > pivot){
-                if (j <= start || a[j] == pivot) break;
-                j--;
-            }
-
-            if (a[i] == pivot) newPivotIndex = i;
-            if (a[j] == pivot) newPivotIndex = j;
+        while (true) {
+            while (a[i] < pivot && i <= end) i++;
+            while (a[j] > pivot && j >= start) j--;
 
             if (i >= j) break;
             swap(a, i, j);
         }
 
-        return newPivotIndex;
+        return j;
     }
 
-    private void swap(int[] array, int i, int j){
+    private void swap(int[] array, int i, int j) {
         int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
