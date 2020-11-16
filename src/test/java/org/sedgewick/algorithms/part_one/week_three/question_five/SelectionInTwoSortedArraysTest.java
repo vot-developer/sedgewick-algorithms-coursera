@@ -8,17 +8,25 @@ class SelectionInTwoSortedArraysTest {
 
     @Test
     void select() {
-        int[] nums1 = new int[] {1, 1, 2, 3, 3};
-        int[] nums2 = new int[] {0, 2, 2, 3, 4};
+        int[] nums1 = new int[] {1, 2, 4, 5, 9};
+        int[] nums2 = new int[] {0, 3, 6, 7, 8};
         int result = new SelectionInTwoSortedArrays().select(nums1, nums2, 4);
         assertEquals(3, result);
     }
 
     @Test
-    void selectTwo() {
-        int[] nums1 = new int[] {5, 5, 7, 7, 9};
-        int[] nums2 = new int[] {9, 11, 11, 11, 11, 11};
-        int result = new SelectionInTwoSortedArrays().select(nums1, nums2, 4);
-        assertEquals(11, result);
+    void selectDiffSize() {
+        int[] nums1 = new int[] {1, 2, 4, 5, 9, 10};
+        int[] nums2 = new int[] {0, 3, 6, 7};
+        int result = new SelectionInTwoSortedArrays().select(nums1, nums2, 9);
+        assertEquals(9, result);
+    }
+
+    @Test
+    void cornerCase() {
+        int[] nums1 = new int[] {1, 2, 4, 5, 9, 10};
+        int[] nums2 = new int[] {3};
+        int result = new SelectionInTwoSortedArrays().select(nums1, nums2, 6);
+        assertEquals(9, result);
     }
 }

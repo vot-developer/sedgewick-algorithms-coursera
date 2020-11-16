@@ -1,61 +1,43 @@
 package org.sedgewick.algorithms.part_one.week_three.question_five;
 
+import java.util.Arrays;
+
 public class SelectionInTwoSortedArrays {
 
     /**
-     * O(log(n1+n2))
-     * worst case ~ O(n) with duplicates only
+     * time - O(log k)
+     * space - O(n)
      */
     public int select(int[] num1, int[] num2, int k) {
-        if (k <= 0 || num1 == null || num2 == null || num1.length + num2.length == 0)
-            throw new IllegalArgumentException();
+        return doSort(num1, num2, k - 1);
+    }
 
-        if (k == 1)
+    private int doSort(int[] num1, int[] num2, int k){
+        if (num1.length == 0)
+            return num2[k];
+
+        if (k == 0)
             return Math.min(num1[0], num2[0]);
 
-        if (k == 2 && num1[0] != num2[0])
+        if (k == 1 && num1[0] != num2[0])
             return Math.max(num1[0], num2[0]);
 
-        int value = Math.min(num1[0], num2[0]);
-        int position = 1;
-        int leftNums1 = 0, leftNums2 = 0;
-        int result1;
-        int result2;
-        do {
-            position++;
-            value = Math.max(value + 1, Math.max(num1[leftNums1], num1[leftNums2]));
+        if (num1.length > num2.length)
+            return doSort(num2, num1, k); // num1 - array with min size
 
-            result1 = findIndex(num1, value, leftNums1);
-            if (result1 > 0) leftNums1 = result1;
+        if (num1.length + num2.length <= k)
+            throw new IllegalArgumentException();
 
-            result2 = findIndex(num2, value, leftNums2);
-            if (result2 > 0) leftNums2 = result2;
+        if (num1.length <= k)
+            return num2[k - num1.length];
 
-            if (result1 < 0 && result2 < 0)
-                position--;
-        } while (position < k);
-
-        return value;
-    }
-
-    private int findIndex(int a[], int value, int start) {
-        return findIndex(a, value, start, a.length - 1);
-    }
-
-    private int findIndex(int a[], int value, int start, int end) {
-        if (start > end)
-            return -1;
-
-        if (start == end && a[start] != value)
-            return -1;
-
-        int mid = start + (end - start) / 2;
-        if (a[mid] < value) {
-            return findIndex(a, value, mid + 1, end);
-        } else if (a[mid] > value){
-            return findIndex(a, value, start, mid - 1);
+        int diff = k/2;
+        if (num1[diff] < num2[diff]){
+            num1 = Arrays.copyOfRange(num1, diff, num1.length);
+            return doSort(num1, num2, k - diff);
         } else {
-            return mid;
+            num2 = Arrays.copyOfRange(num2, diff, num2.length);
+            return doSort(num1, num2, k - diff);
         }
     }
 }
