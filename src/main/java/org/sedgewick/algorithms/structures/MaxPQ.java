@@ -14,6 +14,15 @@ public class MaxPQ<Key extends Comparable<Key>> {
         return size == 0;
     }
 
+    public Key max(){
+        if (isEmpty()) throw new NoSuchElementException();
+        return values[1];
+    }
+
+    public int size(){
+        return size;
+    }
+
     public void insert(Key key){
         if (size == values.length) throw new NoSuchElementException();
         values[++size] = key;
