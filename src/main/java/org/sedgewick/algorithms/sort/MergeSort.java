@@ -1,5 +1,10 @@
 package org.sedgewick.algorithms.sort;
 
+/**
+ * time - O(n * log n)
+ * auxiliary space - O(n)
+ * is stable = true
+ */
 public class MergeSort {
 
     public void sort(Comparable[] array) {

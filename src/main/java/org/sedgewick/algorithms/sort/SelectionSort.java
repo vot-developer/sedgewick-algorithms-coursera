@@ -1,5 +1,11 @@
 package org.sedgewick.algorithms.sort;
 
+/**
+ * Selection Sort algorithm
+ * <p>
+ * time - O(n*n)
+ * space - O(1)
+ */
 public class SelectionSort {
 
     public void sort(int[] a) {

@@ -1,5 +1,12 @@
 package org.sedgewick.algorithms.sort;
 
+/**
+ * Insertion Sort algorithm
+ * <p>
+ * time - O(n*n) (O(n) - if a already sorted or partially sorted)
+ * space - O(1)
+ * is stable = true
+ */
 public class InsertionSort {
 
     public void sort(int[] a) {
