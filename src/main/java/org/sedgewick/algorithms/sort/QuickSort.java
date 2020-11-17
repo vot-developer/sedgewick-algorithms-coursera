@@ -1,5 +1,11 @@
 package org.sedgewick.algorithms.sort;
 
+/**
+ * 3 way quick sort.
+ * time - (n * log n), worst - O (n*n), best - O(n)
+ * space - O(1)
+ * is stable = false
+ */
 public class QuickSort {
 
     public void sort(Comparable[] a) {
