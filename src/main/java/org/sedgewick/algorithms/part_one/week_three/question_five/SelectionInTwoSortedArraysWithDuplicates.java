@@ -1,6 +1,6 @@
 package org.sedgewick.algorithms.part_one.week_three.question_five;
 
-public class SelectionInTwoSortedArraysWithDoubles {
+public class SelectionInTwoSortedArraysWithDuplicates {
 
     /**
      * O(log(n1+n2))
