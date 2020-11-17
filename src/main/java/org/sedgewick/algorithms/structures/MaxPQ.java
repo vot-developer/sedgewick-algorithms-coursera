@@ -3,8 +3,8 @@ package org.sedgewick.algorithms.structures;
 import java.util.NoSuchElementException;
 
 public class MaxPQ<Key extends Comparable<Key>> {
-    private final Key[] values;
-    private int size;
+    protected final Key[] values;
+    protected int size;
 
     public MaxPQ(int size) {
         this.values = (Key[]) new Comparable[size + 1];
@@ -38,14 +38,14 @@ public class MaxPQ<Key extends Comparable<Key>> {
         return max;
     }
 
-    private void up(int i){
+    protected void up(int i){
         while (i > 1 && less(values[i/2], values[i])){
             swap(i/2, i);
             i = i/2;
         }
     }
 
-    private void down(int i){
+    protected void down(int i){
         int j;
         while (2*i <= size){
             j = 2*i;
@@ -56,11 +56,11 @@ public class MaxPQ<Key extends Comparable<Key>> {
         }
     }
 
-    private boolean less(Comparable a, Comparable b) {
+    protected boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
     }
 
-    private void swap(int a, int b) {
+    protected void swap(int a, int b) {
         Key tmp = values[a];
         values[a] = values[b];
         values[b] = tmp;
