@@ -2,7 +2,7 @@ package org.sedgewick.algorithms.part_one.week_two.question_one;
 
 import java.util.Stack;
 
-public class TwoStackQueue  {
+public class TwoStackQueue {
     private Stack<Integer> pushStack = new Stack<>();
     private Stack<Integer> peekStack = new Stack<>();
 
@@ -27,8 +27,8 @@ public class TwoStackQueue  {
         if (pushStack.empty() && peekStack.empty())
             return -1;
 
-        if (peekStack.empty()){
-            while (!pushStack.empty()){
+        if (peekStack.empty()) {
+            while (!pushStack.empty()) {
                 peekStack.push(pushStack.pop());
             }
         }

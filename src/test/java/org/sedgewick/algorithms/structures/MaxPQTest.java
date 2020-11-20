@@ -1,9 +1,9 @@
 package org.sedgewick.algorithms.structures;
 
 import org.junit.jupiter.api.Test;
-import org.sedgewick.algorithms.structures.MaxPQ;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MaxPQTest {
 

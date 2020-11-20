@@ -12,7 +12,7 @@ public class SelectionInTwoSortedArrays {
         return doSort(num1, num2, k - 1);
     }
 
-    private int doSort(int[] num1, int[] num2, int k){
+    private int doSort(int[] num1, int[] num2, int k) {
         if (num1.length == 0)
             return num2[k];
 
@@ -31,8 +31,8 @@ public class SelectionInTwoSortedArrays {
         if (num1.length <= k)
             return num2[k - num1.length];
 
-        int diff = k/2;
-        if (num1[diff] < num2[diff]){
+        int diff = k / 2;
+        if (num1[diff] < num2[diff]) {
             num1 = Arrays.copyOfRange(num1, diff, num1.length);
             return doSort(num1, num2, k - diff);
         } else {

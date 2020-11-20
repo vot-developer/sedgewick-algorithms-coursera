@@ -25,15 +25,15 @@ public class CountInversions {
         int i = start;
         int j = mid + 1;
         for (int k = 0; k < sort.length; k++) {
-            if (i == mid + 1){
+            if (i == mid + 1) {
                 sort[k] = a[j++];
                 continue;
             }
-            if (j == end + 1){
+            if (j == end + 1) {
                 sort[k] = a[i++];
                 continue;
             }
-            if (a[i] < a[j]){
+            if (a[i] < a[j]) {
                 sort[k] = a[i++];
             } else {
                 sort[k] = a[j++];

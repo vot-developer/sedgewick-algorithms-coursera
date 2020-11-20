@@ -22,7 +22,8 @@ public class HeapSort {
         int j;
         while (2 * k <= size) {
             j = 2 * k;
-            if (j < size && a[j - 1] < a[j]) j++; // use j-1 instead of j for ref to array index, because we will broke math with 0th index
+            if (j < size && a[j - 1] < a[j])
+                j++; // use j-1 instead of j for ref to array index, because we will broke math with 0th index
             if (a[k - 1] >= a[j - 1]) break;
             swap(a, k - 1, j - 1);
             k = j;

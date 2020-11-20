@@ -3,7 +3,7 @@ package org.sedgewick.algorithms.structures;
 import org.junit.jupiter.api.Test;
 import org.sedgewick.algorithms.part_one.week_one.question_two.UnionFind;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UnionFindTest {
 

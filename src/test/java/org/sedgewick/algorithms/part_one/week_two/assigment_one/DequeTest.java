@@ -69,7 +69,7 @@ class DequeTest {
         deque.addLast(2);
         deque.addFirst(3);
         StringBuilder sb = new StringBuilder();
-        for (Integer i : deque){
+        for (Integer i : deque) {
             sb.append(i);
         }
         assertEquals("312", sb.toString());

@@ -52,7 +52,7 @@ public class SelectionInTwoSortedArraysWithDuplicates {
         int mid = start + (end - start) / 2;
         if (a[mid] < value) {
             return findIndex(a, value, mid + 1, end);
-        } else if (a[mid] > value){
+        } else if (a[mid] > value) {
             return findIndex(a, value, start, mid - 1);
         } else {
             return mid;

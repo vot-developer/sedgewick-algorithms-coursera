@@ -114,7 +114,7 @@ public class Deque<Item> implements Iterable<Item> {
         Deque<Integer> deque = new Deque<>();
         deque.addLast(1);
         Iterator<Integer> it = deque.iterator();
-        while(it.hasNext()){
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
     }

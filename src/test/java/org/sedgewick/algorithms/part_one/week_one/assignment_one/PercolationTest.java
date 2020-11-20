@@ -56,7 +56,7 @@ class PercolationTest {
     }
 
     @Test
-    void testCorner(){
+    void testCorner() {
         Percolation percolation = new Percolation(1);
         percolation.open(1, 1);
         assertTrue(percolation.isFull(1, 1));

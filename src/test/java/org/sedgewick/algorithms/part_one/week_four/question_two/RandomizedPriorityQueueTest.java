@@ -2,7 +2,7 @@ package org.sedgewick.algorithms.part_one.week_four.question_two;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RandomizedPriorityQueueTest {
 

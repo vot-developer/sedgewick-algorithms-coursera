@@ -2,7 +2,8 @@ package org.sedgewick.algorithms.part_one.week_two.question_one;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class TwoStackQueueTest {
 
@@ -11,8 +12,8 @@ class TwoStackQueueTest {
         TwoStackQueue queue = new TwoStackQueue();
         queue.push(1);
         queue.push(2);
-        assertEquals(1,queue.peek());
-        assertEquals(1,queue.pop());
+        assertEquals(1, queue.peek());
+        assertEquals(1, queue.pop());
         assertFalse(queue.empty());
     }
 }

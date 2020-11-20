@@ -13,8 +13,8 @@ public class MergeSortedArraysWithLimit {
 
         int i = 0;
         int j = mid;
-        for (int k = 0; k < a.length; k++){
-            if (j == a.length || (i < mid && auxiliary[i] < a[j])){
+        for (int k = 0; k < a.length; k++) {
+            if (j == a.length || (i < mid && auxiliary[i] < a[j])) {
                 a[k] = auxiliary[i++];
             } else {
                 a[k] = a[j++];

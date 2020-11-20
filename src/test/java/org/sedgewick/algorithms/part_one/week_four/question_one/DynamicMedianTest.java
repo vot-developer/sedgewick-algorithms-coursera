@@ -2,7 +2,7 @@ package org.sedgewick.algorithms.part_one.week_four.question_one;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DynamicMedianTest {
 

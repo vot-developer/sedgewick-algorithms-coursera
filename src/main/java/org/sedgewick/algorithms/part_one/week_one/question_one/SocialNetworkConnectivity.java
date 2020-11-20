@@ -8,7 +8,7 @@ public class SocialNetworkConnectivity {
         this.parents = new int[size];
         this.sizes = new int[size];
 
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             parents[i] = i;
             sizes[i] = 1;
         }
@@ -21,7 +21,7 @@ public class SocialNetworkConnectivity {
         if (rootA == rootB)
             return; //already united
 
-        if (sizes[rootA] >= sizes[rootB]){
+        if (sizes[rootA] >= sizes[rootB]) {
             parents[rootB] = parents[rootA];
             sizes[rootA] += sizes[rootB];
         } else {
@@ -34,8 +34,8 @@ public class SocialNetworkConnectivity {
         return sizes[findRoot(i)];
     }
 
-    private int findRoot(int i){
-        while(parents[i] != i){
+    private int findRoot(int i) {
+        while (parents[i] != i) {
             i = parents[i];
         }
         return i;

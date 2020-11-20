@@ -10,7 +10,7 @@ public class UnionFind {
         weights = new int[size];
         max = new int[size];
 
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             rootIndexes[i] = i;
             max[i] = i;
         }
@@ -23,7 +23,7 @@ public class UnionFind {
         if (rootA == rootB)
             return;
 
-        if (weights[rootA] >= weights[rootB]){
+        if (weights[rootA] >= weights[rootB]) {
             rootIndexes[rootB] = rootIndexes[rootA];
             weights[rootA]++;
             max[rootA] = Math.max(max[rootA], max[rootB]);
@@ -41,12 +41,12 @@ public class UnionFind {
         return false;
     }
 
-    public int find(int i){
+    public int find(int i) {
         return max[findRoot(i)];
     }
 
-    private int findRoot(int i){
-        while(rootIndexes[i] != i){
+    private int findRoot(int i) {
+        while (rootIndexes[i] != i) {
             i = rootIndexes[i];
         }
         return i;

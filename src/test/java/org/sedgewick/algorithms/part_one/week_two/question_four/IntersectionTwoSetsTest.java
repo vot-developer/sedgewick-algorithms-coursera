@@ -2,10 +2,9 @@ package org.sedgewick.algorithms.part_one.week_two.question_four;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class IntersectionTwoSetsTest {
 

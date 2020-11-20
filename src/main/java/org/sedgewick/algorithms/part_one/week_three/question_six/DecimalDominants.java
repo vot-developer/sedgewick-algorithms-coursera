@@ -5,11 +5,11 @@ public class DecimalDominants {
     public int findDecimal(int[] a) {
         int index;
         int end = a.length - 1;
-        while (end >= 0){
+        while (end >= 0) {
             quickMaxSelect(a, 0, end);
             index = getInterval(a, end);
 
-            if (end - index >= 9 || index == 0){
+            if (end - index >= 9 || index == 0) {
                 return a[index];
             }
             end = index - 1;
@@ -27,10 +27,10 @@ public class DecimalDominants {
         int high = end;
         int i = start;
 
-        while (i <= high){
-            if (a[i] < pivot){
+        while (i <= high) {
+            if (a[i] < pivot) {
                 swap(a, i++, low++);
-            } else if (a[i] > pivot){
+            } else if (a[i] > pivot) {
                 swap(a, i, high--);
             } else {
                 i++;

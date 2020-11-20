@@ -16,7 +16,7 @@ public class StackWithMax {
     }
 
     public void push(int value) {
-        if (top == null){
+        if (top == null) {
             top = new Node(null, value, value);
         } else {
             Node prevTop = top;

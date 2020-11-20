@@ -44,14 +44,14 @@ public class FastCollinearPoints {
     private int detectPointsForLine(Point[] points, int i, Point origin, double slope, List<LineSegment> lines) {
         int start = i;
         i += 3; // 3 already have same slope
-        for (; i < points.length; i++){
-            if (origin.slopeTo(points[i]) != slope){
+        for (; i < points.length; i++) {
+            if (origin.slopeTo(points[i]) != slope) {
                 break;
             }
         }
         Point min = origin;
         Point max = origin;
-        for (int j = start; j < i; j++){
+        for (int j = start; j < i; j++) {
             if (points[j].compareTo(min) < 0)
                 min = points[j];
 

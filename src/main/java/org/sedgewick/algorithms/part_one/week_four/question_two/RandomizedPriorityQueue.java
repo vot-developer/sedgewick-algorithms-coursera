@@ -13,12 +13,12 @@ public class RandomizedPriorityQueue<Key extends Comparable<Key>> extends MaxPQ<
         random = new Random();
     }
 
-    public Key sample(){
+    public Key sample() {
         if (super.size == 0) throw new NoSuchElementException();
         return values[random.nextInt(size) + 1]; // +1 because index 0 - doesn't save value
     }
 
-    public Key delRandom(){
+    public Key delRandom() {
         if (super.size == 0) throw new NoSuchElementException();
         int i = random.nextInt(size) + 1;
         swap(i, size);

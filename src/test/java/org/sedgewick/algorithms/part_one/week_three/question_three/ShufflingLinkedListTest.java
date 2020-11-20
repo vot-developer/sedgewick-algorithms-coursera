@@ -2,8 +2,6 @@ package org.sedgewick.algorithms.part_one.week_three.question_three;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ShufflingLinkedListTest {
 
     @Test

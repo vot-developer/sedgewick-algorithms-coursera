@@ -1,6 +1,5 @@
 package org.sedgewick.algorithms.part_one.week_three.question_three;
 
-import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class ShufflingLinkedList {
@@ -51,13 +50,13 @@ public class ShufflingLinkedList {
 
     private void merge(Node first, Node second, int firstSize, int secondSize) {
         int i = 0, j = 0;
-        while (i < firstSize && j < secondSize){
-            if (i == firstSize){
+        while (i < firstSize && j < secondSize) {
+            if (i == firstSize) {
                 swapByChance(first, second);
                 j++;
                 second = second.next;
                 continue;
-            } else if (j == secondSize){
+            } else if (j == secondSize) {
                 swapByChance(first, second);
                 i++;
                 first = first.next;
@@ -72,7 +71,7 @@ public class ShufflingLinkedList {
         }
     }
 
-    private void swapByChance(Node a, Node b){
+    private void swapByChance(Node a, Node b) {
         if (random.nextInt(2) > 0)
             return;
 

@@ -26,7 +26,7 @@ public class Successor {
 
     private int findMax(int i) {
         int k = i + 1;
-        while (max[k] != 0){
+        while (max[k] != 0) {
             k = max[k];
         }
         max[i] = k; //optimization

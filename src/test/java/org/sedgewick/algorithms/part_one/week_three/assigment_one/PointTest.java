@@ -2,7 +2,7 @@ package org.sedgewick.algorithms.part_one.week_three.assigment_one;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PointTest {
 

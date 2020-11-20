@@ -1,6 +1,5 @@
 package org.sedgewick.algorithms.part_one.week_two.question_five;
 
-import edu.princeton.cs.algs4.StdRandom;
 import org.junit.jupiter.api.Test;
 
 import static edu.princeton.cs.algs4.StdRandom.shuffle;

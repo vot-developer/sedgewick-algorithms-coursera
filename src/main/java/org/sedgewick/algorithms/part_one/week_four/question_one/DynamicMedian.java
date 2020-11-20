@@ -45,7 +45,7 @@ public class DynamicMedian {
 
     public int removeMedian() {
         int result = 0;
-        if (max.size() > min.size()){
+        if (max.size() > min.size()) {
             result = max.delMin();
             if (max.size() > min.size()) min.insert(max.delMin());
             return result;

@@ -11,12 +11,12 @@ public class DutchNationalFlag {
         int rightBorder = array.length - 1;
 
         int i = 0;
-        while (i <= rightBorder){
-            if (array[i] == 0){
+        while (i <= rightBorder) {
+            if (array[i] == 0) {
                 swap(array, i, leftBorder);
                 leftBorder++;
                 i++;
-            } else if (array[i] == 2){
+            } else if (array[i] == 2) {
                 swap(array, i, rightBorder);
                 rightBorder--;
             } else {

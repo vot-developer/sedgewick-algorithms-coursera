@@ -23,7 +23,7 @@ public class BitonicArray {
                     left = mid + 1;
                 }
             } else {                        //linear case - RIGHT
-                if (target > nums[mid] && target <= nums[right]){ //target in right
+                if (target > nums[mid] && target <= nums[right]) { //target in right
                     left = mid + 1;
                 } else {                    //target in left, NOT linear
                     right = mid - 1;
