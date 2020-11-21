@@ -70,3 +70,8 @@ by www.coursera.org
 ###### Programming Assignment: 
 [8 Puzzle.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_four/assigment_one)
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_four/assigment_one/))
+#### Elementary Symbol Tables
+###### Interview Questions:
+1. [Java autoboxing and equals().](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_four/question_four)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_four/question_four/AutoboxingAndEqualsTest.java))
+
