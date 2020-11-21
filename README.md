@@ -74,4 +74,7 @@ by www.coursera.org
 ###### Interview Questions:
 1. [Java autoboxing and equals().](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_four/question_four)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_four/question_four/AutoboxingAndEqualsTest.java))
+2. [Check if a binary tree is a BST.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_four/question_five)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_four/question_five/BstValidatorTest.java))
+
 
