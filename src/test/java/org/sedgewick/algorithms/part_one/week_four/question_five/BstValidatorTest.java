@@ -5,6 +5,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BstValidatorTest {
+    /*      5
+          /   \
+         3     6
+        / \
+       2  4
+      /
+     1
+     */
     @Test
     void test() {
         TreeNode tr3 = new TreeNode(3, new TreeNode(2, new TreeNode(1), null), new TreeNode(4));
@@ -13,6 +21,14 @@ class BstValidatorTest {
         assertTrue(new BstValidator().isValidBST(root));
     }
 
+    /*      5
+          /   \
+         3     6
+        / \
+       7  4
+      /
+     1
+     */
     @Test
     void test2() {
         TreeNode tr3 = new TreeNode(3, new TreeNode(7, new TreeNode(1), null), new TreeNode(4));
