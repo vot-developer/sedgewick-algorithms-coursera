@@ -1,6 +1,7 @@
 package org.sedgewick.algorithms.part_one.week_five.question_two;
 
 import edu.princeton.cs.algs4.BST;
+import edu.princeton.cs.algs4.RedBlackBST;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -10,7 +11,7 @@ public class DocumentSearch {
     public int search(String[] document, String[] indexes) {
         if (indexes.length < 2) return -1;
 
-        BST<String, Deque<Integer>> bst = new BST<>();
+        RedBlackBST<String, Deque<Integer>> bst = new RedBlackBST<>();
         for (int i = 0; i < document.length; i++) {
             if (!bst.contains(document[i])) {
                 Deque<Integer> queue = new ArrayDeque<>();
@@ -50,7 +51,7 @@ public class DocumentSearch {
         return finalEnd - finalStart + 1;
     }
 
-    private boolean isInnerContains(String[] indexes, BST<String, Deque<Integer>> bst, int min, int max) {
+    private boolean isInnerContains(String[] indexes, RedBlackBST<String, Deque<Integer>> bst, int min, int max) {
         if (indexes.length == 2) return true;
 
         for (int i = 1; i < indexes.length - 1; i++) {

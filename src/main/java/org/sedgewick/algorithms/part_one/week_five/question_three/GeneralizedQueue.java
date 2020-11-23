@@ -1,14 +1,14 @@
 package org.sedgewick.algorithms.part_one.week_five.question_three;
 
-import edu.princeton.cs.algs4.BST;
+import edu.princeton.cs.algs4.RedBlackBST;
 
 public class GeneralizedQueue<E> {
-    private BST<Integer, E> bst;
+    private RedBlackBST<Integer, E> bst;
     private int index = 1;
 
 
     public GeneralizedQueue() {
-        bst = new BST<>();
+        bst = new RedBlackBST<>();
     }
 
     public void push(E value) {
