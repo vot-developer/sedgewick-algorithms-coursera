@@ -87,4 +87,5 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_five/question_three/GeneralizedQueueTest.java))
 #### Geometric Applications of BSTs
 ###### Programming Assignment: 
-
+[Kd-Trees](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_five/assigment_one)
+([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_five/assigment_one/))
