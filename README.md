@@ -89,3 +89,10 @@ by www.coursera.org
 ###### Programming Assignment: 
 [Kd-Trees](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_five/assigment_one)
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_five/assigment_one/))
+### Week 6
+#### Hash Tables
+###### Interview Questions:
+1. [4-SUM.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_six/question_one)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_six/question_one/FourSumTest.java))
+2. [Hashing with wrong hashCode() or equals()](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_six/question_two)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_six/question_two/OlympicAthleteWithHashTest.java))
