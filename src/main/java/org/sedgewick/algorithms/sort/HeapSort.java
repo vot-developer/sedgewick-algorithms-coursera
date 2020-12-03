@@ -7,32 +7,43 @@ package org.sedgewick.algorithms.sort;
  */
 public class HeapSort {
 
-    public void sort(int[] a) {
+    //do math with indexes > 0 (from 1, because 2 = 1 * 2 and 2!= 0 * 2), but array ref with -1 adjustment
+    public void sort(Comparable[] a) {
         int size = a.length;
-        for (int k = size / 2; k > 0; k--) { // sort for max heap structure
+        for (int k = size / 2; k > 0; k--){
             down(a, k, size);
         }
-        while (size > 0) {
-            swap(a, --size, 0); // simulation of remove max, actually just move it to end with shrink size
+
+        while (size > 0){
+            swap(a, 1, size--);
             down(a, 1, size);
         }
     }
 
-    private void down(int[] a, int k, int size) {
+    private void down(Comparable[] a, int k, int size) {
         int j;
         while (2 * k <= size) {
             j = 2 * k;
-            if (j < size && a[j - 1] < a[j])
-                j++; // use j-1 instead of j for ref to array index, because we will broke math with 0th index
-            if (a[k - 1] >= a[j - 1]) break;
-            swap(a, k - 1, j - 1);
+            if (j + 1 < size && less(j, j + 1, a))
+                j++;
+
+            if (less(j, k, a))
+                break;
+
+            swap(a, j, k);
             k = j;
         }
     }
 
-    private void swap(int[] a, int i, int j) {
-        int tmp = a[i];
+    private void swap(Comparable[] a, int i, int j) {
+        i--; j--; //-1 adjustment
+        Comparable tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
+    }
+
+    private boolean less(int i, int j, Comparable[] a) {
+        i--; j--; //-1 adjustment
+        return a[i].compareTo(a[j]) < 0;
     }
 }
