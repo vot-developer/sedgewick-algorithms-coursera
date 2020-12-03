@@ -1,14 +1,14 @@
 package org.sedgewick.algorithms.structures;
 
-public class BinaryHeapPQ {
+public class HeapPQ {
     private Comparable[] values;
     private int size = 0;
 
-    public BinaryHeapPQ(int size) {
+    public HeapPQ(int size) {
         this.values = new Comparable[size + 1];
     }
 
-    public BinaryHeapPQ(Comparable[] array) {
+    public HeapPQ(Comparable[] array) {
         this.values = new Comparable[array.length + 1];
         for (Comparable value : array)
             insert(value);
