@@ -59,8 +59,8 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
                 return node.right;
 
             Node min = min(node.right);
-            min.right = delete(node.right, min.key);
             min.left = node.left;
+            min.right = delete(node.right, min.key);
             return min;
         }
 
