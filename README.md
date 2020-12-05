@@ -103,3 +103,7 @@ by www.coursera.org
 ###### Interview Questions:
 1. [Nonrecursive depth-first search.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_one)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_one/DeapFirstSearchTest.java))
+2. [Diameter and center of a tree. Given a connected graph with no cycles](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_two)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_two/DiameterAndCenterOfTreeTest.java))
+
+   
