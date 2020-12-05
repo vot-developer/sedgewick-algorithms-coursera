@@ -25,7 +25,7 @@ public class BreadthFirstPaths {
         return marked[v];
     }
 
-    Deque<Integer> pathTo(int v){
+    public Deque<Integer> pathTo(int v){
         Deque<Integer> path = new LinkedList<>();
         while(v != s){
             path.addFirst(pathTo[v]); //stack

@@ -96,3 +96,10 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_six/question_one/FourSumTest.java))
 2. [Hashing with wrong hashCode() or equals()](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_six/question_two)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_six/question_two/OlympicAthleteWithHashTest.java))
+---
+## Algorithms, Part II
+### Week 1
+#### Undirected Graphs
+###### Interview Questions:
+1. [Nonrecursive depth-first search.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_one)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_one/DeapFirstSearchTest.java))

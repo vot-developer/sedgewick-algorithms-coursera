@@ -23,7 +23,7 @@ public class DeepFirstPaths {
         return marked[v];
     }
 
-    Queue<Integer> pathTo(int v){
+    public Queue<Integer> pathTo(int v){
         Deque<Integer> path = new LinkedList<>();
         while(v != s){
             path.push(pathTo[v]);
