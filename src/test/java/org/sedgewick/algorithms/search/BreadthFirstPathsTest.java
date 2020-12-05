@@ -1,13 +1,12 @@
 package org.sedgewick.algorithms.search;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.sedgewick.algorithms.structures.Graph;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeepFirstPathsTest {
+class BreadthFirstPathsTest {
     private static Graph graph;
     /*
     6 - 0 - 1 - 4 - 5 - 3
@@ -36,19 +35,19 @@ class DeepFirstPathsTest {
 
     @Test
     void hasToPath() {
-        DeepFirstPaths dfp = new DeepFirstPaths(graph, 0);
-        assertTrue(dfp.hasToPath(5));
+        BreadthFirstPaths bfp = new BreadthFirstPaths(graph, 0);
+        assertTrue(bfp.hasToPath(5));
     }
 
     @Test
     void pathTo() {
-        DeepFirstPaths dfp = new DeepFirstPaths(graph, 0);
-        assertArrayEquals(new Integer[]{0, 1, 4}, dfp.pathTo(5).toArray());
+        BreadthFirstPaths bfp = new BreadthFirstPaths(graph, 0);
+        assertArrayEquals(new Integer[]{0, 1, 4}, bfp.pathTo(5).toArray());
     }
 
     @Test
     void cornerCasePathTo() {
-        DeepFirstPaths dfp = new DeepFirstPaths(graph, 0);
-        assertArrayEquals(new Integer[]{0}, dfp.pathTo(1).toArray());
+        BreadthFirstPaths bfp = new BreadthFirstPaths(graph, 0);
+        assertArrayEquals(new Integer[]{0}, bfp.pathTo(1).toArray());
     }
 }
