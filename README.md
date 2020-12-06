@@ -94,7 +94,7 @@ by www.coursera.org
 ###### Interview Questions:
 1. [4-SUM.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_six/question_one)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_six/question_one/FourSumTest.java))
-2. [Hashing with wrong hashCode() or equals()](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_six/question_two)
+2. [Hashing with wrong hashCode() or equals().](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_one/week_six/question_two)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_one/week_six/question_two/OlympicAthleteWithHashTest.java))
 ---
 ## Algorithms, Part II
@@ -103,7 +103,8 @@ by www.coursera.org
 ###### Interview Questions:
 1. [Nonrecursive depth-first search.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_one)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_one/DeapFirstSearchTest.java))
-2. [Diameter and center of a tree. Given a connected graph with no cycles](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_two)
+2. [Diameter and center of a tree. Given a connected graph with no cycles.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_two)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_two/DiameterAndCenterOfTreeTest.java))
-
+3. [Euler cycle.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_three)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_three/EulerСycleTest.java))
    
