@@ -111,6 +111,8 @@ by www.coursera.org
 ###### Interview Questions:
 1. [Shortest directed cycle.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_four)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_four/ShortestDirectedCycleTest.java))
-   
+2. [Hamiltonian path in a DAG.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/question_five)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/question_five/HamiltonianPathTest.java))
+
 
    
