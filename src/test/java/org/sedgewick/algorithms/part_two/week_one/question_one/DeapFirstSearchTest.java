@@ -1,8 +1,9 @@
 package org.sedgewick.algorithms.part_two.week_one.question_one;
 
+import edu.princeton.cs.algs4.Graph;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.sedgewick.algorithms.structures.Graph;
+
 
 import java.util.Iterator;
 

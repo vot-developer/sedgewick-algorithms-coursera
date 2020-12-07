@@ -1,9 +1,8 @@
 package org.sedgewick.algorithms.search;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.sedgewick.algorithms.structures.Graph;
+import edu.princeton.cs.algs4.Graph;
 
 import static org.junit.jupiter.api.Assertions.*;
 

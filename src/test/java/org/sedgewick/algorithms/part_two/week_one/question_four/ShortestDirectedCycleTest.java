@@ -33,14 +33,14 @@ class ShortestDirectedCycleTest {
 
     @Test
     void find() {
-        assertArrayEquals(new Integer[]{0, 2, 3}, sdc.bfs(digraph).toArray());
+        assertArrayEquals(new Integer[]{0, 2, 3}, sdc.dfs(digraph).toArray());
     }
 
     @Test
     void notFind() {
         Digraph digraph = new Digraph(2);
         digraph.addEdge(0, 1);
-        assertNull(sdc.bfs(digraph));
+        assertNull(sdc.bfsWithSaveAllVisitedHistory(digraph));
     }
 
     @Test
@@ -48,12 +48,12 @@ class ShortestDirectedCycleTest {
         Digraph digraph = new Digraph(2);
         digraph.addEdge(0, 1);
         digraph.addEdge(1, 0);
-        assertArrayEquals(new Integer[]{0, 1}, sdc.bfs(digraph).toArray());
+        assertArrayEquals(new Integer[]{0, 1}, sdc.bfsWithSaveAllVisitedHistory(digraph).toArray());
     }
 
     @Test
     void findSecond() {
-        Collection<Integer> path =  sdc.bfs(graphCycle);
+        Collection<Integer> path =  sdc.bfsWithSaveAllVisitedHistory(graphCycle);
         assertArrayEquals(new Integer[]{0, 1, 2}, path.toArray());
     }
 

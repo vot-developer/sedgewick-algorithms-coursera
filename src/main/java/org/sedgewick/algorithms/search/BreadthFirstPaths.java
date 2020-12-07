@@ -1,6 +1,7 @@
 package org.sedgewick.algorithms.search;
 
-import org.sedgewick.algorithms.structures.Graph;
+
+import edu.princeton.cs.algs4.Graph;
 
 import java.util.Deque;
 import java.util.LinkedList;

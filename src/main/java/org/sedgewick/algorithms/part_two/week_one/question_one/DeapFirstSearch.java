@@ -1,7 +1,6 @@
 package org.sedgewick.algorithms.part_two.week_one.question_one;
 
-import org.sedgewick.algorithms.structures.Graph;
-
+import edu.princeton.cs.algs4.Graph;
 import java.util.Deque;
 import java.util.LinkedList;
 
