@@ -19,7 +19,7 @@ public class HamiltonianPath {
         this.marked = new boolean[digraph.V()];
         this.topologicalOrder = new ReversePostOrder(digraph).topologicalOrder();
 
-        if (digraph.V() < 2) {
+        if (digraph.V() > 2) {
             dfs(topologicalOrder.iterator().next());
         } else {
             marked[0] = true;
