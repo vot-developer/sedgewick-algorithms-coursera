@@ -3,13 +3,13 @@ package org.sedgewick.algorithms.search;
 
 import edu.princeton.cs.algs4.Graph;
 
-public class ConnectionComponent {
+public class GraphConnectionComponent {
     private final Graph graph;
     private final Integer[] id;
     private final boolean[] marked;
     private int idCount;
 
-    public ConnectionComponent(Graph graph) {
+    public GraphConnectionComponent(Graph graph) {
         this.graph = graph;
         this.id = new Integer[graph.V()];
         this.marked = new boolean[graph.V()];

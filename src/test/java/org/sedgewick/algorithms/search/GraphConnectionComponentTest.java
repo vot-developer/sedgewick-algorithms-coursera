@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.Graph;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ConnectionComponentTest {
+class GraphConnectionComponentTest {
     private static Graph graph;
     /*
     6 - 0 - 1 - 4 - 5 - 3
@@ -35,7 +35,7 @@ class ConnectionComponentTest {
 
     @Test
     void isConnected() {
-        ConnectionComponent cc = new ConnectionComponent(graph);
+        GraphConnectionComponent cc = new GraphConnectionComponent(graph);
         assertTrue(cc.isConnected(3, 6));
         assertTrue(cc.isConnected(10, 11));
         assertTrue(cc.isConnected(7, 8));
@@ -45,13 +45,13 @@ class ConnectionComponentTest {
 
     @Test
     void count() {
-        ConnectionComponent cc = new ConnectionComponent(graph);
+        GraphConnectionComponent cc = new GraphConnectionComponent(graph);
         assertEquals(3, cc.count());
     }
 
     @Test
     void id() {
-        ConnectionComponent cc = new ConnectionComponent(graph);
+        GraphConnectionComponent cc = new GraphConnectionComponent(graph);
         assertEquals(1, cc.id(7));
     }
 }
