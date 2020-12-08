@@ -41,13 +41,13 @@ class ReachableVertexTest {
     @Test
     void isReachableVertexDAG() {
         ReachableVertex rv = new ReachableVertex();
-        assertEquals(3, rv.find(digraph));
+        assertEquals(3, rv.findDAG(digraph));
     }
 
     @Test
     void isNotReachableVertexDAG() {
         ReachableVertex rv = new ReachableVertex();
-        assertEquals(-1, rv.find(digraph2));
+        assertEquals(-1, rv.findDAG(digraph2));
     }
 
     @Test

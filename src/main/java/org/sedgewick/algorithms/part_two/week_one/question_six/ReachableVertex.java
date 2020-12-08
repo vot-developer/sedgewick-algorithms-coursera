@@ -9,7 +9,7 @@ import java.util.Deque;
 
 public class ReachableVertex {
 
-    public int find(Digraph digraph) {
+    public int findDAG(Digraph digraph) {
         Digraph reverse = digraph.reverse();
         Collection<Integer> topologicalOrder = new ReversePostOrder(reverse).topologicalOrder();
         if (digraph.V() > 2) {
@@ -23,19 +23,57 @@ public class ReachableVertex {
         return -1;
     }
 
-    private int dfsCount(int v, Digraph digraph) {
+    public int find(Digraph digraph) {
+        Collection<Integer> topologicalOrder = new ReversePostOrder(digraph.reverse()).topologicalOrder();
+        int[] id = new int[digraph.V()];
+        boolean[] marked = new boolean[digraph.V()];
         int count = 0;
+        for (int i : topologicalOrder) {
+            if (!marked[i])
+                dfsStrongConnectedComponents(i, digraph, id, marked, count++);
+        }
+        //shrink strong connection groups in points
+        Digraph dag = new Digraph(count);
+        for (int i = 0; i < digraph.V(); i++)
+            for (int v : digraph.adj(i))
+                if (id[i] != id[v])
+                    dag.addEdge(id[i], id[v]);
+
+        int dagResult = findDAG(dag);
+        if (dagResult == -1) return -1;
+
+        //convert from DAG to passed digraph
+        for (int i = 0; i < digraph.V(); i++)
+            if (id[i] == dagResult)
+                return i;
+
+        return -1;
+    }
+
+    private void dfsStrongConnectedComponents(int v, Digraph digraph, int[] id, boolean[] marked, int count) {
+        marked[v] = true;
+        id[v] = count;
+        for (int i : digraph.adj(v)) {
+            if (!marked[i])
+                dfsStrongConnectedComponents(i, digraph, id, marked, count);
+        }
+    }
+
+    private int dfsCount(int v, Digraph digraph) {
+        int count = 1;
         boolean[] marked = new boolean[digraph.V()];
         Deque<Integer> deque = new ArrayDeque<>();
         deque.addFirst(v);
+        marked[v] = true;
 
         while (!deque.isEmpty()) {
             int j = deque.removeFirst();
-            marked[j] = true;
-            count++;
             for (int i : digraph.adj(j))
-                if (!marked[i])
+                if (!marked[i]) {
                     deque.addFirst(i);
+                    marked[i] = true;
+                    count++;
+                }
         }
         return count;
     }
