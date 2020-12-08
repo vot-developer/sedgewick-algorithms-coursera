@@ -10,20 +10,23 @@ import java.util.Deque;
 public class ReachableVertex {
 
     public int findDAG(Digraph digraph) {
+        if (digraph == null || digraph.V() == 0) return -1;
+        if (digraph.V() == 1) return 0;
+
         Digraph reverse = digraph.reverse();
         Collection<Integer> topologicalOrder = new ReversePostOrder(reverse).topologicalOrder();
-        if (digraph.V() > 2) {
-            int candidate = topologicalOrder.iterator().next();
-            int count = dfsCount(candidate, reverse);
-            if (count == reverse.V())
-                return candidate;
-        } else {
-            return 0;
-        }
+        int candidate = topologicalOrder.iterator().next();
+        int count = dfsCount(candidate, reverse);
+        if (count == reverse.V())
+            return candidate;
+
         return -1;
     }
 
     public int find(Digraph digraph) {
+        if (digraph == null || digraph.V() == 0) return -1;
+        if (digraph.V() == 1) return 0;
+
         Collection<Integer> topologicalOrder = new ReversePostOrder(digraph.reverse()).topologicalOrder();
         int[] id = new int[digraph.V()];
         boolean[] marked = new boolean[digraph.V()];
