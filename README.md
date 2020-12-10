@@ -123,6 +123,6 @@ by www.coursera.org
 1. [Bottleneck minimum spanning tree.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_one)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_one/BottleneckMinimumSpanningTreeTest.java))
 2. [Is an edge in a MST.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_two)
-([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_two/EdgeIsInMSTTest.java))
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_two/EdgeInMSTTest.java))
    
    
