@@ -120,6 +120,6 @@ by www.coursera.org
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/assigment_one/))
 #### Minimum Spanning Trees
 ###### Interview Questions:
-1. [Bottleneck minimum spanning tree.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_four)
-([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_four/BottleneckMinimumSpanningTreeTest.java))
+1. [Bottleneck minimum spanning tree.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_one)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_one/BottleneckMinimumSpanningTreeTest.java))
    
