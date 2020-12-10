@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class EdgeIsInMSTTest {
+class EdgeInMSTTest {
     /*
             1 --- 3
            /\ \  / \
@@ -19,23 +19,23 @@ class EdgeIsInMSTTest {
          4 - 0 - 6
      */
     private static EdgeWeightedGraph graph;
-    private static EdgeIsInMST checker;
+    private static EdgeInMST checker;
 
     @Test
     void isIn() {
         Edge e = new Edge(2, 6, 0.40);
-        assertTrue(checker.isInMST(e, graph));
+        assertTrue(checker.isIn(e, graph));
     }
 
     @Test
     void isNotIn() {
         Edge e = new Edge(0, 6, 0.58);
-        assertFalse(checker.isInMST(e, graph));
+        assertFalse(checker.isIn(e, graph));
     }
 
     @BeforeAll
     static void setUp() {
-        checker = new EdgeIsInMST();
+        checker = new EdgeInMST();
 
         graph = new EdgeWeightedGraph(8);
         graph.addEdge(new Edge(2, 7, 0.34));
