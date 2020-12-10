@@ -42,18 +42,22 @@ public class BottleneckMinimumSpanningTree {
         if (visited.contains(v)) return;
 
         visited.add(v);
-        Edge minEdge = findUnvisitedMinimum();
+        boolean isAdded = false;
         for (Edge e : g.adj(v)) {
             if (!visited.contains(e.other(v))) {
                 if (e.weight() < maxWeight) {
+                    isAdded = true;
                     storeEdge(e, e.other(v));
-                } else {
-                    if (minEdge != null) {
-                        int minV = visited.contains(minEdge.either()) ? minEdge.either() : minEdge.other(minEdge.either()); //visited
-                        int minW = minEdge.other(minV); //unvisited
-                        storeEdge(minEdge, minW);
-                    }
                 }
+            }
+        }
+
+        if (!isAdded){
+            Edge minEdge = findUnvisitedMinimum();
+            if (minEdge != null) {
+                int minV = visited.contains(minEdge.either()) ? minEdge.either() : minEdge.other(minEdge.either()); //visited
+                int minW = minEdge.other(minV); //unvisited
+                storeEdge(minEdge, minW);
             }
         }
     }
