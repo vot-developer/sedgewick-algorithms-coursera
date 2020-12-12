@@ -126,5 +126,9 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_two/EdgeInMSTTest.java))
 3. [Minimum-weight feedback edge set.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_three)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_three/MinimumWeightFeedbackEdgeSetTest.java))
+#### Shortest Paths
+###### Interview Questions:
+1. [Shortest Paths.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_four)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_four/MonotonicShortestPathTest.java))   
    
    

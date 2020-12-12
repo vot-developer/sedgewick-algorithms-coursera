@@ -9,7 +9,10 @@ import java.util.Deque;
 public class EdgeInMST {
     public boolean isIn(Edge e, EdgeWeightedGraph g) {
         int v = e.either();
-        return isConnectedByLessWeight(v, e.other(v), e.weight(), g);
+        if (isConnectedByLessWeight(v, e.other(v), Double.POSITIVE_INFINITY, g)) //generally connected
+            return !isConnectedByLessWeight(v, e.other(v), e.weight(), g); //but with edges less then 'e' - not
+
+        return false;
     }
 
     public boolean isConnectedByLessWeight(int v, int w, double weight, EdgeWeightedGraph g){
@@ -19,7 +22,7 @@ public class EdgeInMST {
         marked[v] = true;
         while (!stack.isEmpty()){
             int vertex = stack.removeFirst();
-            if (vertex == w) return false;
+            if (vertex == w) return true;
             for (Edge e : g.adj(vertex)){
                 if (e.weight() >= weight) continue;
                 int i = e.other(vertex);
@@ -29,6 +32,6 @@ public class EdgeInMST {
                 }
             }
         }
-        return true;
+        return false;
     }
 }
