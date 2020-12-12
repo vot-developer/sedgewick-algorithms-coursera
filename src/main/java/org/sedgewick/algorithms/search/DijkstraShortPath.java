@@ -8,6 +8,10 @@ import java.util.Deque;
 import java.util.Queue;
 import java.util.TreeSet;
 
+/*
+ time - O(E * Log(V))
+ space - O(V)
+ */
 public class DijkstraShortPath {
     private final EdgeWeightedDigraph digraph;
     private final edu.princeton.cs.algs4.DirectedEdge[] edgeTo;
