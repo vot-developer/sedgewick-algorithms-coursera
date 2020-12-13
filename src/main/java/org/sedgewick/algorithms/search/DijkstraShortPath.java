@@ -5,6 +5,7 @@ import org.sedgewick.algorithms.structures.DirectedEdge;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.TreeSet;
 
@@ -16,7 +17,7 @@ public class DijkstraShortPath {
     private final EdgeWeightedDigraph digraph;
     private final edu.princeton.cs.algs4.DirectedEdge[] edgeTo;
     private final double[] distTo;
-    private final TreeSet<DirectedEdge> pq;
+    private final PriorityQueue<DirectedEdge> pq;
     private final DirectedEdge[] edgeToVertex;
     private final int s;
 
@@ -24,7 +25,7 @@ public class DijkstraShortPath {
         this.digraph = digraph;
         this.edgeTo = new edu.princeton.cs.algs4.DirectedEdge[digraph.V()];
         this.distTo = new double[digraph.V()];
-        this.pq = new TreeSet();
+        this.pq = new PriorityQueue();
         this.edgeToVertex = new DirectedEdge[digraph.V()];
         this.s = s;
 
@@ -34,7 +35,7 @@ public class DijkstraShortPath {
 
         pq.add(new DirectedEdge(0, 0, 0.0));
         while (!pq.isEmpty()) {
-            DirectedEdge visitedEdge = pq.pollFirst();
+            DirectedEdge visitedEdge = pq.poll();
             edgeToVertex[visitedEdge.to()] = null;
             visit(visitedEdge.to());
         }
