@@ -7,6 +7,10 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Queue;
 
+/*
+time - O(V*E)
+space - O(V)
+ */
 public class BellmanFordShortPath {
     private final EdgeWeightedDigraph digraph;
     private final int s;
