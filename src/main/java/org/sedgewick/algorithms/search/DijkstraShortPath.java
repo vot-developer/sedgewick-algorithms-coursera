@@ -31,16 +31,16 @@ public class DijkstraShortPath {
         for (int i = 0; i < distTo.length; i++)
             distTo[i] = Double.POSITIVE_INFINITY;
         distTo[s] = 0;
-    }
 
-    public Queue<edu.princeton.cs.algs4.DirectedEdge> find(int v) {
-        visit(s);
+        pq.add(new DirectedEdge(0, 0, 0.0));
         while (!pq.isEmpty()) {
             DirectedEdge visitedEdge = pq.pollFirst();
             edgeToVertex[visitedEdge.to()] = null;
             visit(visitedEdge.to());
         }
+    }
 
+    public Queue<edu.princeton.cs.algs4.DirectedEdge> find(int v) {
         return buildPath(v);
     }
 
