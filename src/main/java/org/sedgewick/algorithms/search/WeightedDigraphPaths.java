@@ -19,7 +19,7 @@ public class WeightedDigraphPaths {
     private final int s;
 
     /*
-    time - O(E * logE)
+    time - O(2^E)
     space - O(E * V)
      */
     public WeightedDigraphPaths(EdgeWeightedDigraph digraph, int s) {

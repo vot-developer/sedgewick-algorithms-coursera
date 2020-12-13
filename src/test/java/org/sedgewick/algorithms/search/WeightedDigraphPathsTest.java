@@ -19,10 +19,6 @@ class WeightedDigraphPathsTest {
     void findPath() {
         WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
         List<DirectedEdge> path = wdps.findShortest(6);
-        assertEquals(4, path.get(0).to());
-        assertEquals(5, path.get(1).to());
-        assertEquals(2, path.get(2).to());
-        assertEquals( 6, path.get(3).to());
         assertArrayEquals(new int[]{4, 5, 2, 6}, path.stream().mapToInt(e -> e.to()).toArray());
     }
 
@@ -30,7 +26,9 @@ class WeightedDigraphPathsTest {
     void findAllPath() {
         WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
         List<WeightedDigraphPaths.Path> paths = wdps.findAllPaths(6);
-        System.out.println(paths);
+        assertEquals(22, paths.size());
+        assertEquals(25.0, paths.get(0).weight);
+        assertEquals(33.0, paths.get(paths.size() - 1).weight);
     }
 
     @BeforeAll
