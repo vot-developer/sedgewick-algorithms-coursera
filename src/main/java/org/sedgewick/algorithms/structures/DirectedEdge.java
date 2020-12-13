@@ -97,4 +97,8 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
             return 1;
         return 0;
     }
+
+    public edu.princeton.cs.algs4.DirectedEdge toAlgsEdge() {
+        return new edu.princeton.cs.algs4.DirectedEdge(v, w, weight);
+    }
 }

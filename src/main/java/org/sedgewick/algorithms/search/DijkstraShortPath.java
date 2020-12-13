@@ -35,9 +35,11 @@ public class DijkstraShortPath {
 
         pq.add(new DirectedEdge(0, 0, 0.0));
         while (!pq.isEmpty()) {
-            DirectedEdge visitedEdge = pq.poll();
-            edgeToVertex[visitedEdge.to()] = null;
-            visit(visitedEdge.to());
+            DirectedEdge edge = pq.poll();
+            edgeToVertex[edge.to()] = null;
+            for (edu.princeton.cs.algs4.DirectedEdge e : digraph.adj(edge.to())) {
+                relax(new DirectedEdge(e));
+            }
         }
     }
 
@@ -45,20 +47,19 @@ public class DijkstraShortPath {
         return buildPath(v);
     }
 
-    private void visit(int v) {
-        for (edu.princeton.cs.algs4.DirectedEdge de : digraph.adj(v)) {
-            DirectedEdge e = new DirectedEdge(de);
-            int i = e.to();
-            if (distTo[i] > distTo[v] + e.weight()) {
-                distTo[i] = distTo[v] + e.weight();
-                edgeTo[i] = de;
-                if (edgeToVertex[i] != null) {
-                    DirectedEdge oldEdge = edgeToVertex[i];
-                    pq.remove(oldEdge);
-                }
-                edgeToVertex[i] = e;
-                pq.add(e);
+    private void relax(DirectedEdge e){
+        int v = e.from();
+        int w = e.to();
+        if (distTo[w] > distTo[v] + e.weight()){
+            distTo[w] = distTo[v] + e.weight();
+            edgeTo[w] = e.toAlgsEdge();
+            //update queue
+            if (edgeToVertex[w] != null) {
+                DirectedEdge oldEdge = edgeToVertex[w];
+                pq.remove(oldEdge);
             }
+            edgeToVertex[w] = e;
+            pq.add(e);
         }
     }
 
