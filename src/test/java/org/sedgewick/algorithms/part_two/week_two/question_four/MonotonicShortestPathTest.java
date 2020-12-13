@@ -5,6 +5,9 @@ import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+import java.util.Queue;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MonotonicShortestPathTest {
@@ -12,7 +15,23 @@ class MonotonicShortestPathTest {
 
     @Test
     void increasingPath() {
+        MonotonicShortestPath msp = new MonotonicShortestPath(digraph,0);
+        Queue<DirectedEdge> path = msp.findAsc(6);
+        Iterator<DirectedEdge> it = path.iterator();
+        assertEquals(4, it.next().to());
+        assertEquals( 6, it.next().to());
+        assertFalse(it.hasNext());
+    }
 
+    @Test
+    void decreasingPath() {
+        MonotonicShortestPath msp = new MonotonicShortestPath(digraph,0);
+        Queue<DirectedEdge> path = msp.findDesc(2);
+        Iterator<DirectedEdge> it = path.iterator();
+        assertEquals(4, it.next().to());
+        assertEquals( 5, it.next().to());
+        assertEquals( 2, it.next().to());
+        assertFalse(it.hasNext());
     }
 
     @BeforeAll
