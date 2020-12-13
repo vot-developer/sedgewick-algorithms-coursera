@@ -118,6 +118,7 @@ by www.coursera.org
 ###### Programming Assignment:
 [WordNet](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_one/assigment_one)
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_one/assigment_one/))
+### Week 2
 #### Minimum Spanning Trees
 ###### Interview Questions:
 1. [Bottleneck minimum spanning tree.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_one)
@@ -128,7 +129,9 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_three/MinimumWeightFeedbackEdgeSetTest.java))
 #### Shortest Paths
 ###### Interview Questions:
-1. [Shortest Paths.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_four)
+1. [Monotonic shortest path.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_four)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_four/MonotonicShortestPathTest.java))   
+2. [Second shortest path.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/question_five)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/question_five/SecondShortestPathTest.java))
    
    
