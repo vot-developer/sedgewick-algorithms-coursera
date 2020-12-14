@@ -57,6 +57,8 @@ public class KShortPaths {
     private void relax(DirectedEdge e) {
         int v = e.from();
         int w = e.to();
+        if (w == 6 && v == 3)
+            System.out.println();
         List<Path> listToAdd = new ArrayList<>(distTo[v].size());
         for (Path pathV : distTo[v]){
             if (distTo[w].size() < k) {
@@ -77,7 +79,8 @@ public class KShortPaths {
         for (Path path : listToAdd)
             distTo[w].add(path);
         if (distTo[w].size() > k){
-            for (int i = 0; i < distTo[w].size() - k; i++)
+            int length = distTo[w].size() - k;
+            for (int i = 0; i < length; i++)
                 distTo[w].remove(distTo[w].last());
         }
 

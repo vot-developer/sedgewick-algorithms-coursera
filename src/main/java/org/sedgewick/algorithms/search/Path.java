@@ -2,6 +2,7 @@ package org.sedgewick.algorithms.search;
 
 import org.sedgewick.algorithms.structures.DirectedEdge;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -54,16 +55,15 @@ public class Path implements Comparable<Path> {
         if (edges.size() > o.edges.size())
             return 1;
 
-        boolean argIncluded = edges.containsAll(o.edges);
-        boolean thisIncluded = o.edges.containsAll(edges);
-        if (argIncluded && thisIncluded)
-            return 0;
-
-        if (argIncluded)
-            return 1;
-
-        if (thisIncluded)
-            return -1;
+        Iterator<DirectedEdge> itO = o.edges.iterator();
+        for (Iterator<DirectedEdge> it = edges.iterator(); it.hasNext(); ) {
+            DirectedEdge e = it.next();
+            DirectedEdge eO = itO.next();
+            if (e.to() > eO.to())
+                return 1;
+            if (e.to() < eO.to())
+                return -1;
+        }
 
         return 0;
     }
