@@ -3,7 +3,6 @@ package org.sedgewick.algorithms.search;
 import org.sedgewick.algorithms.structures.DirectedEdge;
 
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Set;
 
