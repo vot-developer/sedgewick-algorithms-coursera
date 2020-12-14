@@ -31,8 +31,8 @@ public class KShortPaths {
         for (int i = 0; i < distTo.length; i++)
             distTo[i] = new TreeSet();
 
-        pq.add(new DirectedEdge(0, 0, 0.0));
-        distTo[0].add(new Path(0.0, new LinkedList<>()));
+        pq.add(new DirectedEdge(0, 0, 0.0));        //for run while process
+        distTo[0].add(new Path(0.0, new LinkedList<>())); //for fork all paths from that
         while (!pq.isEmpty()) {
             DirectedEdge edge = pq.poll();
             for (edu.princeton.cs.algs4.DirectedEdge e : digraph.adj(edge.to()))
