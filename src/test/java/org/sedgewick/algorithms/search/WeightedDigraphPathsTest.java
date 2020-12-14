@@ -23,7 +23,7 @@ class WeightedDigraphPathsTest {
     @Test
     void findAllPath() {
         WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
-        List<Path> paths = wdps.findAllPaths(6);
+        List<WeightedDigraphPaths.Path> paths = wdps.findAllPaths(6);
         assertEquals(22, paths.size());
         assertEquals(25.0, paths.get(0).weight);
         assertEquals(33.0, paths.get(paths.size() - 1).weight);

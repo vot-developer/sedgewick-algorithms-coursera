@@ -1,12 +1,14 @@
-package org.sedgewick.algorithms.part_two.week_two.question_five;
+package org.sedgewick.algorithms.search;
 
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.sedgewick.algorithms.structures.DirectedEdge;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
 
@@ -32,7 +34,7 @@ public class KShortPaths {
             distTo[i] = new TreeSet();
 
         pq.add(new DirectedEdge(0, 0, 0.0));        //for run while process
-        distTo[0].add(new Path(0.0, new LinkedList<>())); //for fork all paths from that
+        distTo[0].add(new Path(0.0, new LinkedHashSet<>())); //for fork all paths from that
         while (!pq.isEmpty()) {
             DirectedEdge edge = pq.poll();
             for (edu.princeton.cs.algs4.DirectedEdge e : digraph.adj(edge.to()))
