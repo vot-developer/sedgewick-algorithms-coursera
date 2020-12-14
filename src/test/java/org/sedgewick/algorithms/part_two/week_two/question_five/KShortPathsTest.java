@@ -1,36 +1,43 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.part_two.week_two.question_five;
 
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+class KShortPathsTest {
 
-class WeightedDigraphPathsTest {
     private static EdgeWeightedDigraph digraph;
 
     @Test
-    void findPath() {
-        WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
-        List<DirectedEdge> path = wdps.findShortest(6);
-        assertArrayEquals(new int[]{4, 5, 2, 6}, path.stream().mapToInt(e -> e.to()).toArray());
+    void findShortestPath() {
+        KShortPaths kpaths = new KShortPaths(digraph, 0, 2);
+        Path path = kpaths.find(6, 1);
+        assertArrayEquals(new int[]{4, 5, 2, 6}, path.edges.stream().mapToInt(e -> e.to()).toArray());
     }
 
     @Test
-    void findAllPath() {
-        WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
-        List<Path> paths = wdps.findAllPaths(6);
-        assertEquals(22, paths.size());
-        assertEquals(25.0, paths.get(0).weight);
-        assertEquals(33.0, paths.get(paths.size() - 1).weight);
+    void findSecondShortestPath() {
+        KShortPaths kpaths = new KShortPaths(digraph, 0, 2);
+        Path path = kpaths.find(6, 2);
+        assertArrayEquals(new int[]{7, 2, 6}, path.edges.stream().mapToInt(e -> e.to()).toArray());
+    }
+
+    @Test
+    void findEighthShortestPath() {
+        KShortPaths kpaths8 = new KShortPaths(digraph, 0, 8);
+        Path path8 = kpaths8.find(6, 8);
+        assertArrayEquals(new int[]{7, 2, 3, 6}, path8.edges.stream().mapToInt(e -> e.to()).toArray());
+
+        KShortPaths kpaths12 = new KShortPaths(digraph, 0, 12);
+        Path path12 = kpaths12.find(6, 8);
+        assertArrayEquals(new int[]{7, 2, 3, 6}, path12.edges.stream().mapToInt(e -> e.to()).toArray());
     }
 
     @BeforeAll
-    static void setUp() {
+    static void setUp(){
         digraph = new EdgeWeightedDigraph(8);
         digraph.addEdge(new DirectedEdge(0, 1, 5.0));
         digraph.addEdge(new DirectedEdge(0, 4, 9.0));

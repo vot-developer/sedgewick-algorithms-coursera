@@ -35,11 +35,8 @@ public class KShortPaths {
         distTo[0].add(new Path(0.0, new LinkedList<>()));
         while (!pq.isEmpty()) {
             DirectedEdge edge = pq.poll();
-            for (edu.princeton.cs.algs4.DirectedEdge e : digraph.adj(edge.to())) {
-                if (e.to() == 2)
-                    System.out.println();
+            for (edu.princeton.cs.algs4.DirectedEdge e : digraph.adj(edge.to()))
                 relax(new DirectedEdge(e));
-            }
         }
     }
 
@@ -59,24 +56,28 @@ public class KShortPaths {
         int v = e.from();
         int w = e.to();
         List<Path> listToAdd = new ArrayList<>(distTo[v].size());
-        for (Path pathV : distTo[v]) {
-            Path newPath = pathV.fork();
-            newPath.addEdge(e);
-            if (distTo[w].contains(newPath))
-                continue;
-
-            if (distTo[w].size() < k)
-                listToAdd.add(newPath);
-            else
-                for (Path pathW : distTo[w])
-                    if (pathW.weight > newPath.weight)
-                        listToAdd.add(newPath);
+        for (Path pathV : distTo[v]){
+            if (distTo[w].size() < k) {
+                pathV = pathV.fork();
+                pathV.addEdge(e);
+                listToAdd.add(pathV);
+            } else {
+                for (Path pathW : distTo[w]){
+                    if (pathW.weight > pathV.weight + e.weight()){
+                        pathV = pathV.fork();
+                        pathV.addEdge(e);
+                        listToAdd.add(pathV);
+                    }
+                }
+            }
         }
-        int sizeToDel = distTo[w].size() + listToAdd.size() - k;
-        for (int i = 0; i < sizeToDel || i < distTo[w].size(); i++)
-            distTo[w].remove(distTo[w].last());
+
         for (Path path : listToAdd)
             distTo[w].add(path);
+        if (distTo[w].size() > k){
+            for (int i = 0; i < distTo[w].size() - k; i++)
+                distTo[w].remove(distTo[w].last());
+        }
 
         if (listToAdd.size() > 0)
             pq.add(e);
