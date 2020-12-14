@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 import java.util.TreeSet;
 
 /*
-    time - O(k^2 * E * log E), if k = C -> O(E * log E)
+    time - O(k^2 * E * log kE), if k = C -> O(E * log E)
     space - O(k*V*E), if k = C -> space -> O(V*E)
  */
 public class KShortPaths {
