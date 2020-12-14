@@ -24,7 +24,6 @@ public class DeapFirstSearch {
         stack.addFirst(s);
         while (!stack.isEmpty()){
             Integer v = stack.removeFirst();
-            System.out.println(v);
             for (int i : graph.adj(v)){
                 if (!marked[i]){
                     pathTo[i] = v;
