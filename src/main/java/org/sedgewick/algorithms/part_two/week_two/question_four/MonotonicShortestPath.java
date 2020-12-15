@@ -4,30 +4,29 @@ package org.sedgewick.algorithms.part_two.week_two.question_four;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.sedgewick.algorithms.structures.DirectedEdge;
 
-import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Deque;
+import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
- * Not fixed problem with overwriting path (making shorter) that finally you will lose any path to targert.
- * Need store list edgesTo's to each vertex and choose second small if you couldn't do increase or decrease order only.
+ * time - O(E * Log E)
+ * space - O(V * E)
  */
 public class MonotonicShortestPath {
     private final EdgeWeightedDigraph digraph;
     private final int s;
     private final double[] distTo;
-    private final DirectedEdge[] edgeToASC;
-    private final DirectedEdge[] edgeToDESC;
+    private final List<edu.princeton.cs.algs4.DirectedEdge>[] edgeToASC;
+    private final List<edu.princeton.cs.algs4.DirectedEdge>[] edgeToDESC;
     private PriorityQueue<DirectedEdge> pq;
 
     public MonotonicShortestPath(EdgeWeightedDigraph digraph, int s) {
         this.digraph = digraph;
         this.s = s;
         this.distTo = new double[digraph.V()];
-        this.edgeToASC = new DirectedEdge[digraph.V()];
-        this.edgeToDESC = new DirectedEdge[digraph.V()];
+        this.edgeToASC = new List[digraph.V()];
+        this.edgeToDESC = new List[digraph.V()];
 
         //ASC
         this.pq = new PriorityQueue<>();
@@ -56,30 +55,27 @@ public class MonotonicShortestPath {
         }
     }
 
-    public Queue<edu.princeton.cs.algs4.DirectedEdge> findAsc(int v) {
+    public List<edu.princeton.cs.algs4.DirectedEdge> findAsc(int v) {
         return buildPath(v, edgeToASC);
     }
 
-    public Queue<edu.princeton.cs.algs4.DirectedEdge> findDesc(int v) {
+    public List<edu.princeton.cs.algs4.DirectedEdge> findDesc(int v) {
         return buildPath(v, edgeToDESC);
     }
 
-    private void relax(DirectedEdge e, DirectedEdge[] edgeTo) {
+    private void relax(DirectedEdge e, List<edu.princeton.cs.algs4.DirectedEdge>[] edgeTo) {
         int v = e.from();
         int w = e.to();
 
         if (distTo[w] > distTo[v] + e.weight()) {
             distTo[w] = distTo[v] + e.weight();
-            edgeTo[w] = e;
+            List<edu.princeton.cs.algs4.DirectedEdge> edgeToW = new ArrayList<>(edgeTo[v] != null ? edgeTo[v] : new ArrayList<>());
+            edgeToW.add(e.toAlgsEdge());
+            edgeTo[w] = edgeToW;
         }
     }
 
-    private Queue<edu.princeton.cs.algs4.DirectedEdge> buildPath(int v, DirectedEdge[] edgeTo) {
-        Deque<edu.princeton.cs.algs4.DirectedEdge> path = new ArrayDeque<>();
-        do {
-            path.addFirst(edgeTo[v].toAlgsEdge());
-            v = edgeTo[v].from();
-        } while (v != s);
-        return path;
+    private List<edu.princeton.cs.algs4.DirectedEdge> buildPath(int v, List<edu.princeton.cs.algs4.DirectedEdge>[] edgeTo) {
+        return edgeTo[v];
     }
 }

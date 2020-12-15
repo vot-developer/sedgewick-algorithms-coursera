@@ -2,10 +2,13 @@ package org.sedgewick.algorithms.part_two.week_two.question_four;
 
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Queue;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,22 +19,22 @@ class MonotonicShortestPathTest {
     @Test
     void increasingPath() {
         MonotonicShortestPath msp = new MonotonicShortestPath(digraph,0);
-        Queue<DirectedEdge> path = msp.findAsc(6);
-        Iterator<DirectedEdge> it = path.iterator();
-        assertEquals(4, it.next().to());
-        assertEquals( 6, it.next().to());
-        assertFalse(it.hasNext());
+        List<DirectedEdge> path = msp.findAsc(6);
+        assertArrayEquals(new int[]{4, 6}, path.stream().mapToInt(e -> e.to()).toArray());
     }
 
     @Test
     void decreasingPath() {
         MonotonicShortestPath msp = new MonotonicShortestPath(digraph,0);
-        Queue<DirectedEdge> path = msp.findDesc(2);
-        Iterator<DirectedEdge> it = path.iterator();
-        assertEquals(4, it.next().to());
-        assertEquals( 5, it.next().to());
-        assertEquals( 2, it.next().to());
-        assertFalse(it.hasNext());
+        List<DirectedEdge> path = msp.findDesc(2);
+        assertArrayEquals(new int[]{4, 5, 2}, path.stream().mapToInt(e -> e.to()).toArray());
+    }
+
+    @Test
+    void decreasingPathBug() {
+        MonotonicShortestPath msp = new MonotonicShortestPath(digraph,0);
+        List<DirectedEdge> path = msp.findDesc(3);
+        assertArrayEquals(new int[]{7, 2, 3}, path.stream().mapToInt(e -> e.to()).toArray());
     }
 
     @BeforeAll
