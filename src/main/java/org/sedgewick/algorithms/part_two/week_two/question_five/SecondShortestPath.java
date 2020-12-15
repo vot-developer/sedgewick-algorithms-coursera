@@ -3,7 +3,7 @@ package org.sedgewick.algorithms.part_two.week_two.question_five;
 import edu.princeton.cs.algs4.DijkstraSP;
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
-import org.sedgewick.algorithms.search.Path;
+import org.sedgewick.algorithms.structures.Path;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

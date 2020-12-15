@@ -2,13 +2,12 @@ package org.sedgewick.algorithms.search;
 
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.sedgewick.algorithms.structures.DirectedEdge;
+import org.sedgewick.algorithms.structures.Path;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
 

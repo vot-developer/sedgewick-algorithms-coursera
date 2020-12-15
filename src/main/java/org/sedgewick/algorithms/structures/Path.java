@@ -1,6 +1,4 @@
-package org.sedgewick.algorithms.search;
-
-import org.sedgewick.algorithms.structures.DirectedEdge;
+package org.sedgewick.algorithms.structures;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
