@@ -2,6 +2,8 @@ package org.sedgewick.algorithms.part_two.week_two.assigment;
 
 import edu.princeton.cs.algs4.Picture;
 
+import java.awt.Color;
+
 public class SeamCarver {
     private static final double BORDER_ENERGY = 1000;
     private Picture picture;
@@ -57,7 +59,7 @@ public class SeamCarver {
     public void removeHorizontalSeam(int[] seam) {
         validateHorizontalSeam(seam);
 
-        if (isTransposed) //return to original
+        if (isTransposed) // return to original
             transpose();
 
         Picture old = picture;
@@ -77,16 +79,16 @@ public class SeamCarver {
     public void removeVerticalSeam(int[] seam) {
         validateVerticalSeam(seam);
 
-        if (isTransposed) //return to original
+        if (isTransposed) // return to original
             transpose();
 
-        Picture old = this.picture;
-        this.picture = new Picture(old.width() - 1, old.height());
+        Picture old = picture;
+        picture = new Picture(old.width() - 1, old.height());
 
         for (int j = 0; j < old.height(); j++) {
             for (int i = 0, column = 0; i < old.width(); i++) {
                 if (i != seam[j])
-                    this.picture.setRGB(column++, j, old.getRGB(i, j));
+                    picture.setRGB(column++, j, old.getRGB(i, j));
             }
         }
 
@@ -106,9 +108,9 @@ public class SeamCarver {
                 else distTo[i][j] = Double.POSITIVE_INFINITY;
             }
 
-        //relax
-        for (int j = 0; j < energy[0].length - 1; j++) //rows
-            for (int i = 0; i < energy.length; i++) //columns
+        // relax
+        for (int j = 0; j < energy[0].length - 1; j++) // rows
+            for (int i = 0; i < energy.length; i++) // columns
                 relaxAdjacents(i, j, edgeTo, distTo);
 
         return findShortestPath(edgeTo, distTo);
@@ -168,20 +170,27 @@ public class SeamCarver {
 
         for (int i = 0; i < energy.length; i++)
             for (int j = 0; j < energy[i].length; j++) {
-                if (i == 0 || i == energy.length - 1 || j == 0 || j == energy[i].length - 1) {
-                    energy[i][j] = BORDER_ENERGY;
-                    continue;
-                }
-                double rxSq = Math.pow(picture.get(i - 1, j).getRed() - picture.get(i + 1, j).getRed(), 2);
-                double gxSq = Math.pow(picture.get(i - 1, j).getGreen() - picture.get(i + 1, j).getGreen(), 2);
-                double bxSq = Math.pow(picture.get(i - 1, j).getBlue() - picture.get(i + 1, j).getBlue(), 2);
-
-                double rySq = Math.pow(picture.get(i, j - 1).getRed() - picture.get(i, j + 1).getRed(), 2);
-                double gySq = Math.pow(picture.get(i, j - 1).getGreen() - picture.get(i, j + 1).getGreen(), 2);
-                double bySq = Math.pow(picture.get(i, j - 1).getBlue() - picture.get(i, j + 1).getBlue(), 2);
-
-                energy[i][j] = Math.sqrt(rxSq + gxSq + bxSq + rySq + gySq + bySq);
+                energy[i][j] = calculateEnergy(i, j);
             }
+    }
+
+    private double calculateEnergy(int x, int y) {
+        if (x == 0 || x == energy.length - 1 || y == 0 || y == energy[x].length - 1)
+            return BORDER_ENERGY;
+
+        Color xm = picture.get(x - 1, y);
+        Color xp = picture.get(x + 1, y);
+        double rxSq = Math.pow(getRed(xm) - getRed(xp), 2);
+        double gxSq = Math.pow(getGreen(xm) - getGreen(xp), 2);
+        double bxSq = Math.pow(getBlue(xm) - getBlue(xp), 2);
+
+        Color ym = picture.get(x, y - 1);
+        Color yp = picture.get(x, y + 1);
+        double rySq = Math.pow(getRed(ym) - getRed(yp), 2);
+        double gySq = Math.pow(getGreen(ym) - getGreen(yp), 2);
+        double bySq = Math.pow(getBlue(ym) - getBlue(yp), 2);
+
+        return Math.sqrt(rxSq + gxSq + bxSq + rySq + gySq + bySq);
     }
 
     private void validate(int x, int y) {
@@ -205,8 +214,8 @@ public class SeamCarver {
     }
 
     private void validateSeam(int[] seam, boolean isVertical) {
-        int a = isVertical ? this.height() : this.width();
-        int b = isVertical ? this.width() : this.height();
+        int a = isVertical ? height() : width();
+        int b = isVertical ? width() : height();
 
         if (seam.length != a) {
             throw new IllegalArgumentException("invalid seam length");
@@ -222,5 +231,17 @@ public class SeamCarver {
             if (Math.abs(seam[i] - seam[i - 1]) > 1)
                 throw new IllegalArgumentException("invalid value - range or two adjacent entries differ by more than 1");
         }
+    }
+
+    private int getRed(Color color) {
+        return (color.getRGB() >> 16) & 0xFF;
+    }
+
+    private int getGreen(Color color) {
+        return (color.getRGB() >> 8) & 0xFF;
+    }
+
+    private int getBlue(Color color) {
+        return (color.getRGB() >> 0) & 0xFF;
     }
 }
