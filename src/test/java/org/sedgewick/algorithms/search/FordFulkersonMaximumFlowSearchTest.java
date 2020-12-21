@@ -14,7 +14,7 @@ class FordFulkersonMaximumFlowSearchTest {
       / \ \  \   \
     0 - >2 -> 4 -> 5
      */
-    private static FlowNetwork flowNetwork;
+    private FlowNetwork flowNetwork;
 
     @Test
     void test(){
@@ -22,8 +22,14 @@ class FordFulkersonMaximumFlowSearchTest {
         assertEquals(15, ffs.value());
     }
 
-    @BeforeAll
-    static void setUp() {
+    @Test
+    void test2(){
+        FordFulkersonMaximumFlowSearch ffs = new FordFulkersonMaximumFlowSearch(flowNetwork, 1, 4);
+        assertEquals(13, ffs.value());
+    }
+
+    @BeforeEach
+    void setUp() {
         flowNetwork = new FlowNetwork(6);
         flowNetwork.addEdge(new FlowEdge(0, 1, 10));
         flowNetwork.addEdge(new FlowEdge(0, 2, 5));
