@@ -138,4 +138,9 @@ by www.coursera.org
 ###### Programming Assignment:
 [Seam Carving](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_two/assigment)
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_two/assigment/SeamCarverTest.java))   
+### Week 3
+#### Maximum Flow
+###### Interview Questions:
+1. [Fattest path.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_three/question_one)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/question_one/FattestPathTest.java))
    
