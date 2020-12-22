@@ -147,3 +147,6 @@ by www.coursera.org
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/question_two/PerfectMatchingTest.java))
 3. [Maximum weight closure problem](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_three/question_three)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/question_three))
+###### Programming Assignment:
+[Seam Carving](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_three/assigment)
+([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/assigment/BaseballEliminationTest.java))
