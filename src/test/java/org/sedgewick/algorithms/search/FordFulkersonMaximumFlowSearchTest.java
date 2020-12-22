@@ -2,6 +2,7 @@ package org.sedgewick.algorithms.search;
 
 import edu.princeton.cs.algs4.FlowEdge;
 import edu.princeton.cs.algs4.FlowNetwork;
+import edu.princeton.cs.algs4.FordFulkerson;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ class FordFulkersonMaximumFlowSearchTest {
     @Test
     void test(){
         FordFulkersonMaximumFlowSearch ffs = new FordFulkersonMaximumFlowSearch(flowNetwork, 0, 5);
+        FordFulkerson ff = new FordFulkerson(flowNetwork, 0, 5);
         assertEquals(15, ffs.value());
     }
 

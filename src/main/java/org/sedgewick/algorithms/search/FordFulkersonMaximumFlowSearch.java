@@ -2,7 +2,6 @@ package org.sedgewick.algorithms.search;
 
 import edu.princeton.cs.algs4.FlowEdge;
 import edu.princeton.cs.algs4.FlowNetwork;
-import edu.princeton.cs.algs4.Queue;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -25,6 +24,10 @@ public class FordFulkersonMaximumFlowSearch {
 
     public double value(){
         return value;
+    }
+
+    public boolean inCut(int v)  {
+        return marked[v];
     }
 
     private void calculateFlow() {
