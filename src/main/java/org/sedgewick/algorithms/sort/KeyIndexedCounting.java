@@ -1,6 +1,11 @@
 package org.sedgewick.algorithms.sort;
 
 public class KeyIndexedCounting {
+
+    /**
+     * time - O(N)
+     * space - O(N + R)
+     */
     public String sortEnglishLowLetters(String s){
         int[] count = new int[27]; // 26 alphabet symbols + 1
 
