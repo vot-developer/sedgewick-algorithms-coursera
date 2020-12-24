@@ -154,3 +154,6 @@ by www.coursera.org
 ###### Interview Questions:
 1. [2-sum.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_three/question_four)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/question_four/TwoSumTest.java))
+2. [American flag sort.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_three/question_five)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/question_five/AmericanFlagSortTest.java)    
+   
