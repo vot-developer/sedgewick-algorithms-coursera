@@ -13,8 +13,7 @@ public class AmericanFlagSort {
         for (int i = 0; i < n; i++)
             count[a[i]]++;
 
-        int k = 0;
-        for (int r = 0; r < count.length; r++){
+        for (int k = 0, r = 0; r < count.length; r++){
             if (count[r] == 0) continue;
             while(count[r]-- > 0)
                 a[k++] = r;
