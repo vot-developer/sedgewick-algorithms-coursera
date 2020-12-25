@@ -4,9 +4,7 @@ import org.sedgewick.algorithms.sort.LSD;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class TwoSum {
 
@@ -14,31 +12,41 @@ public class TwoSum {
     time - O(r*n), where r is size of result. Could be O(n) if find only one pair (here more common case)
     space - O(n)
      */
-    public List<Integer> findTwoSum(long[] a, long T) {
+    public List<Integer[]> findTwoSum(long[] a, long T) {
         long[] aux = Arrays.copyOf(a, a.length);
         LSD.sortByByte(aux);
 
-        Set<Long> terms = new HashSet<>();
+        List<Long[]> listOfTerms = new ArrayList<>();
         int l = 0, r = aux.length - 1;
         while (l < r) {
             if (aux[l] + aux[r] > T)
                 r--;
             else if (aux[l] + aux[r] < T)
                 l++;
-            else if (aux[l] + aux[r] == T) {
-                terms.add(aux[l]); //break and return here if need only one pair
-                terms.add(aux[r]);
-                l++;
+            else if (aux[l] + aux[r] == T) {//break and return here if need only one pair
+                Long[] terms = new Long[2];
+                terms[0] = aux[l];
+                terms[1] = aux[r];
+                listOfTerms.add(terms);
+                if (aux[l] + aux[r - 1] == T)
+                    r--;
+                else
+                    l++;
             }
         }
 
-        List<Integer> indexes = new ArrayList<>();
-        for (int i = 0; i < a.length; i++)
-            for (long j : terms) //O(1) if find only one pair, but this case O(r*n)
-                if (a[i] == j)
-                    indexes.add(i);
-
-        return indexes;
+        //map values to indexes
+        List<Integer[]> result = new ArrayList<>();
+        for (Long[] terms : listOfTerms) {
+            Integer[] indexes = new Integer[2];
+            for (int j = 0; j < 2; j++)
+                for (int i = 0; i < a.length; i++) {
+                    if (a[i] == terms[j])
+                        indexes[j] = i;
+                }
+            result.add(indexes);
+        }
+        return result;
     }
 
     /*

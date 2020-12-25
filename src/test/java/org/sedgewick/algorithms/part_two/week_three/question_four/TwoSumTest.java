@@ -10,8 +10,11 @@ class TwoSumTest {
 
     @Test
     void findTwoSum() {
-        long[] a = new long[]{17l, 7l, 3l, 14l, 10l, 9l, 9l, 8l};
-        List<Integer> result = new TwoSum().findTwoSum(a, 17l);
-        assertArrayEquals(new Integer[]{1, 2, 3, 4, 5, 6, 7}, result.toArray());
+        long[] a = new long[]{17l, 7l, 3l, 14l, 10l, 9l, 8l};
+        List<Integer[]> result = new TwoSum().findTwoSum(a, 17l);
+        assertEquals(3, result.size());
+        assertArrayEquals(new Integer[]{2, 3}, result.get(0));
+        assertArrayEquals(new Integer[]{1, 4}, result.get(1));
+        assertArrayEquals(new Integer[]{6, 5}, result.get(2));
     }
 }
