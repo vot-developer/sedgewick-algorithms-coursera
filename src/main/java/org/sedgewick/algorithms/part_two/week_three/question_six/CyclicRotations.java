@@ -7,7 +7,11 @@ import java.util.Set;
 
 public class CyclicRotations {
 
-    // O (n * N * Log N). time < O(N * n * L)
+    /*
+    time - O (n * N * Log L).
+    for O(N * n * L) - compare strings with equals hash - char by char (without map structure).
+    N - max count of match for one a[i].
+     */
     public List<List<String>> find(String[] a) {
         List<List<String>> result = new ArrayList<>();
         CyclicElement[] elements = new CyclicElement[a.length];
@@ -87,7 +91,7 @@ public class CyclicRotations {
             }
         }
 
-        // average O(1), worst - O(logN)
+        // average O(1), worst - O(log L)
         public boolean isCyclicRotation(CyclicElement ce) {
             return rotations.contains(ce.value);
         }
