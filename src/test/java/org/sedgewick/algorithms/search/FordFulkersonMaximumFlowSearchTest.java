@@ -20,7 +20,6 @@ class FordFulkersonMaximumFlowSearchTest {
     @Test
     void test(){
         FordFulkersonMaximumFlowSearch ffs = new FordFulkersonMaximumFlowSearch(flowNetwork, 0, 5);
-        FordFulkerson ff = new FordFulkerson(flowNetwork, 0, 5);
         assertEquals(15, ffs.value());
     }
 
