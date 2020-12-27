@@ -6,8 +6,10 @@ public class PrefixFreeCodes {
         PrefixTrie trie = new PrefixTrie();
         boolean isFoundPrefix = false;
         for (String s : a)
-            if (trie.put(s))
+            if (trie.put(s)) {
                 isFoundPrefix = true;
+                break;
+            }
 
         return !isFoundPrefix;
     }
