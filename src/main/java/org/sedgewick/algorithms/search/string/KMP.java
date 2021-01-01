@@ -19,14 +19,27 @@ public class KMP {
         }
     }
 
-    public int search(String s){
+    public int search(String text){
         int j = 0;
-        for (int i = 0; i < s.length(); i++){
-            j = states[index(s.charAt(i))][j];
+        for (int i = 0; i < text.length(); i++){
+            j = states[index(text.charAt(i))][j];
             if (j == pattern.length())
                 return i - pattern.length() + 1;
         }
         return -1;
+    }
+
+    public int searchTandems(String text){
+        int countOfTandem = 0;
+        int j = 0;
+        for (int i = 0; i < text.length(); i++){
+            j = states[index(text.charAt(i))][j];
+            if (j == pattern.length()) {
+                countOfTandem++;
+                j = 0;
+            }
+        }
+        return countOfTandem;
     }
 
     private int index(char c) {
