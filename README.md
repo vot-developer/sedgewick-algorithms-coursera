@@ -163,6 +163,7 @@ by www.coursera.org
 ###### Interview Questions:
 1. [Prefix free codes.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_four/question_one)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_four/question_one/PrefixFreeCodesTest.java))
+2. Boggle. See next programming assigment.
 3. [Suffix trees.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_four/question_three)
 ([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_four/question_three/SuffixTreeTest.java))
 #### Substring Search
