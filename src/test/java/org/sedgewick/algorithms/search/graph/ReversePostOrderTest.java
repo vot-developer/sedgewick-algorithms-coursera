@@ -1,14 +1,15 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 import edu.princeton.cs.algs4.Digraph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.sedgewick.algorithms.search.graph.ReversePostOrder;
 
 import java.util.Collection;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class DigraphConnectionComponentTest {
+class ReversePostOrderTest {
     private Digraph digraph;
 
     @BeforeEach
@@ -23,13 +24,13 @@ class DigraphConnectionComponentTest {
         digraph.addEdge(5, 2);
         digraph.addEdge(6, 4);
         digraph.addEdge(6, 0);
-        digraph.addEdge(2, 3);
+        digraph.addEdge(3, 2);
         digraph.addEdge(1, 4);
     }
 
     @Test
     void topologicalOrder() {
-        DigraphConnectionComponent dcc = new DigraphConnectionComponent(digraph);
-        assertTrue(dcc.isConnected(3, 5));
+        Collection<Integer> topologicalOrder = new ReversePostOrder(digraph).topologicalOrder();
+        assertArrayEquals(new Integer[]{3, 6, 0, 5, 2, 1, 4}, topologicalOrder.toArray());
     }
 }

@@ -1,4 +1,4 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;

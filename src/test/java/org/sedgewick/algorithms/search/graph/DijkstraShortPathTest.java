@@ -1,36 +1,33 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.sedgewick.algorithms.search.graph.DijkstraShortPath;
 
-import java.util.List;
+import java.util.Iterator;
+import java.util.Queue;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class WeightedDigraphPathsTest {
+class DijkstraShortPathTest {
     private static EdgeWeightedDigraph digraph;
 
     @Test
     void findPath() {
-        WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
-        List<DirectedEdge> path = wdps.findShortest(6);
-        assertArrayEquals(new int[]{4, 5, 2, 6}, path.stream().mapToInt(e -> e.to()).toArray());
-    }
-
-    @Test
-    void findAllPath() {
-        WeightedDigraphPaths wdps = new WeightedDigraphPaths(digraph, 0);
-        List<WeightedDigraphPaths.Path> paths = wdps.findAllPaths(6);
-        assertEquals(22, paths.size());
-        assertEquals(25.0, paths.get(0).weight);
-        assertEquals(33.0, paths.get(paths.size() - 1).weight);
+        DijkstraShortPath dsp = new DijkstraShortPath(digraph, 0);
+        Queue<DirectedEdge> path = dsp.find(6);
+        Iterator<DirectedEdge> it = path.iterator();
+        assertEquals(4, it.next().to());
+        assertEquals(5, it.next().to());
+        assertEquals(2, it.next().to());
+        assertEquals( 6, it.next().to());
+        assertFalse(it.hasNext());
     }
 
     @BeforeAll
-    static void setUp() {
+    static void setUp(){
         digraph = new EdgeWeightedDigraph(8);
         digraph.addEdge(new DirectedEdge(0, 1, 5.0));
         digraph.addEdge(new DirectedEdge(0, 4, 9.0));

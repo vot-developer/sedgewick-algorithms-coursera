@@ -162,5 +162,10 @@ by www.coursera.org
 #### Tries
 ###### Interview Questions:
 1. [Prefix free codes.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_four/question_one)
-([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/week_four/PrefixFreeCodesTest.java))
-   
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/week_four/question_one/PrefixFreeCodesTest.java))
+3. [Suffix trees.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_four/question_three)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/week_four/question_three/SuffixTreeTest.java))
+#### Substring Search
+###### Interview Questions:   
+1. [Prefix free codes.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_four/question_four)
+([Test](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_three/week_four/question_four/CyclicRotationTest.java))

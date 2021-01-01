@@ -1,7 +1,6 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 
-import edu.princeton.cs.algs4.DepthFirstOrder;
 import edu.princeton.cs.algs4.Digraph;
 
 public class DigraphConnectionComponent {

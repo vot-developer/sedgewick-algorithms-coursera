@@ -3,7 +3,7 @@ package org.sedgewick.algorithms.part_two.week_three.question_three;
 import edu.princeton.cs.algs4.Digraph;
 import edu.princeton.cs.algs4.FlowEdge;
 import edu.princeton.cs.algs4.FlowNetwork;
-import org.sedgewick.algorithms.search.FordFulkersonMaximumFlowSearch;
+import org.sedgewick.algorithms.search.graph.FordFulkersonMaximumFlowSearch;
 
 import java.util.ArrayList;
 import java.util.List;

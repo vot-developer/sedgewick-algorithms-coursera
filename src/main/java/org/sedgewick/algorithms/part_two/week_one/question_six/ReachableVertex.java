@@ -1,7 +1,7 @@
 package org.sedgewick.algorithms.part_two.week_one.question_six;
 
 import edu.princeton.cs.algs4.Digraph;
-import org.sedgewick.algorithms.search.ReversePostOrder;
+import org.sedgewick.algorithms.search.graph.ReversePostOrder;
 
 import java.util.ArrayDeque;
 import java.util.Collection;

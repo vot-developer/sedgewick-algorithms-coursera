@@ -1,12 +1,13 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import edu.princeton.cs.algs4.Graph;
+import org.sedgewick.algorithms.search.graph.GraphConnectionComponent;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeepFirstPathsTest {
+class GraphConnectionComponentTest {
     private static Graph graph;
     /*
     6 - 0 - 1 - 4 - 5 - 3
@@ -34,20 +35,24 @@ class DeepFirstPathsTest {
     }
 
     @Test
-    void hasToPath() {
-        DeepFirstPaths dfp = new DeepFirstPaths(graph, 0);
-        assertTrue(dfp.hasToPath(5));
+    void isConnected() {
+        GraphConnectionComponent cc = new GraphConnectionComponent(graph);
+        assertTrue(cc.isConnected(3, 6));
+        assertTrue(cc.isConnected(10, 11));
+        assertTrue(cc.isConnected(7, 8));
+        assertFalse(cc.isConnected(0, 7));
+        assertFalse(cc.isConnected(9, 3));
     }
 
     @Test
-    void pathTo() {
-        DeepFirstPaths dfp = new DeepFirstPaths(graph, 0);
-        assertArrayEquals(new Integer[]{0, 1, 4}, dfp.pathTo(5).toArray());
+    void count() {
+        GraphConnectionComponent cc = new GraphConnectionComponent(graph);
+        assertEquals(3, cc.count());
     }
 
     @Test
-    void cornerCasePathTo() {
-        DeepFirstPaths dfp = new DeepFirstPaths(graph, 0);
-        assertArrayEquals(new Integer[]{0}, dfp.pathTo(1).toArray());
+    void id() {
+        GraphConnectionComponent cc = new GraphConnectionComponent(graph);
+        assertEquals(1, cc.id(7));
     }
 }

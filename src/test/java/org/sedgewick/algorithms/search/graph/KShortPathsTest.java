@@ -1,9 +1,10 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.sedgewick.algorithms.search.graph.KShortPaths;
 import org.sedgewick.algorithms.structures.Path;
 
 import static org.junit.jupiter.api.Assertions.*;

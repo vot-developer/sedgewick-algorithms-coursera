@@ -1,11 +1,10 @@
-package org.sedgewick.algorithms.search;
+package org.sedgewick.algorithms.search.graph;
 
 import edu.princeton.cs.algs4.FlowEdge;
 import edu.princeton.cs.algs4.FlowNetwork;
-import edu.princeton.cs.algs4.FordFulkerson;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.sedgewick.algorithms.search.graph.FordFulkersonMaximumFlowSearch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
