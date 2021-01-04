@@ -1,11 +1,15 @@
 package org.sedgewick.algorithms.search.string;
 
-public class SuffixTree {
+/**
+ * time - O(n^2)
+ * space - O(R*n)
+ */
+public class NaiveSuffixTree {
     private static final int R = 26; // english alphabet lower-case symbols
     private final String text;
     private Node root;
 
-    public SuffixTree(String text) {
+    public NaiveSuffixTree(String text) {
         this.root = new Node(null, -1);
         this.text = text;
 

@@ -1,29 +1,60 @@
 package org.sedgewick.algorithms.part_two.week_four.question_six;
 
-import org.sedgewick.algorithms.search.string.SuffixTree;
+import edu.princeton.cs.algs4.SuffixArray;
 
 public class LongestPalindromicSubstring {
     private final String text;
-    private final SuffixTree suffixTree;
+    private final SuffixArray suffixArray;
 
     public LongestPalindromicSubstring(String text) {
         this.text = text;
-        this.suffixTree = new SuffixTree(text);
+        this.suffixArray = new SuffixArray(text);
     }
 
+    //expected time - O(n * log(n))
     public String find() {
         StringBuilder sb = new StringBuilder(text);
         String reverse = sb.reverse().toString();
-        suffixTree.findLongestSubstring("repaperfdsaasd");
         String result = "";
-        for (int i = 0; i < reverse.length(); i++) {
+        int index;
+        for (int i = 0; i < reverse.length(); i++) { //time - O(n)
             String pattern = reverse.substring(i);
-            String found = suffixTree.findLongestSubstring(pattern);
+            index = foundCommonIndex(pattern); //expected time - O(log(n))
+            if (index == 0) continue;
+
+            String found = cutCommonString(pattern, text.substring(index));
             if (found.length() > result.length())
                 result = found;
         }
 
         if (result.length() <= 2) return null;
         return result;
+    }
+
+    //expected time - O(log(n))
+    private int foundCommonIndex(String pattern){
+        int rank = suffixArray.rank(pattern); //time - O(log(n))
+        int index1 = countCommonSymbols(rank, pattern);
+        int index2 = 0; // two indexes because search don't find full match
+        if (rank > 0)
+            index2 = countCommonSymbols(rank - 1, pattern);
+        return Math.max(index1, index2);
+    }
+
+    private int countCommonSymbols(int rank, String pattern) {
+        int i;
+        String s = text.substring(suffixArray.index(rank));
+        for (i = 0; i < Math.min(s.length(), pattern.length()); i++) {
+            if (s.charAt(i) != pattern.charAt(i)) break;
+        }
+        return i;
+    }
+
+    private String cutCommonString(String a, String b){
+        int i;
+        for (i = 0; i < Math.min(a.length(), b.length()); i++) {
+            if (a.charAt(i) != b.charAt(i)) break;
+        }
+        return a.substring(0, i);
     }
 }
