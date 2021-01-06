@@ -52,8 +52,8 @@ public class BoggleSolver {
             if (rTrie.isString())
                 saveWord(step.track, board, result);
 
-            for (Position ajd : step.getAdjacents(adjacents)) {
-                if (rTrie.hasNext(board.getLetter(ajd.x(), ajd.y())))
+            for (Position ajd : adjacents.get(p)) {
+                if (rTrie.hasNext(board.getLetter(ajd.x(), ajd.y())) && !step.track.contains(ajd))
                     stack.addFirst(new Step(ajd, step.track, new RTrieIterator(rTrie)));
             }
         }
@@ -105,10 +105,6 @@ public class BoggleSolver {
             if (track != null)
                 this.track = new ArrayList<>(track);
             this.rTrieIterator = rTrieIterator;
-        }
-
-        public Set<Position> getAdjacents(Map<Position, List<Position>> adjacents) {
-            return adjacents.get(p).stream().filter(s -> !track.contains(s)).collect(Collectors.toSet());
         }
     }
 }
