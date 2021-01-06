@@ -12,15 +12,23 @@ class BoggleSolverTest {
     @Test
     void test() {
         BoggleBoard board = new BoggleBoard("board4x2.txt");
-        BoogleTree tree = new BoogleTree(board);
-        assertTrue(tree.find("TAPIDETA"));
+        BoggleSolver boggleSolver = new BoggleSolver(new String[] {"AP", "ATP", "TAPIDETA"});
+        Iterable<String> it = boggleSolver.getAllValidWords(board);
+        int score = 0;
+        for (String word : it)
+            score += boggleSolver.scoreOf(word);
+        assertEquals(12, score);
     }
 
     @Test
     void test2() {
-        BoggleBoard board = new BoggleBoard("board4x2.txt");
-        BoogleTree tree = new BoogleTree(board);
-        assertFalse(tree.find("TAPIDETPA"));
+        BoggleBoard board = new BoggleBoard("board-q2.txt");
+        BoggleSolver boggleSolver = new BoggleSolver(new String[] {"SEQUA"});
+        Iterable<String> it = boggleSolver.getAllValidWords(board);
+        int score = 0;
+        for (String word : it)
+            score += boggleSolver.scoreOf(word);
+        assertEquals(2, score);
     }
 
     @Test

@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Objects;
 
 public class BoogleAdjacentsSolver {
-    private static final Map<BoardType, Map<Position, List<Position>>> cache = new HashMap<>();
+    private final Map<BoardType, Map<Position, List<Position>>> cache = new HashMap<>();
 
-    public static Map<Position, List<Position>> getAdjacents(BoggleBoard board) {
+    public Map<Position, List<Position>> getAdjacents(BoggleBoard board) {
         BoardType boardType = new BoardType(board);
         if (cache.containsKey(boardType))
             return cache.get(boardType);
@@ -46,7 +46,7 @@ public class BoogleAdjacentsSolver {
         return allAdjacents;
     }
 
-    private static class BoardType {
+    private class BoardType {
         private final int cols;
         private final int rows;
 
@@ -56,10 +56,11 @@ public class BoogleAdjacentsSolver {
         }
 
         @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof BoardType)) return false;
-            BoardType boardType = (BoardType) o;
+        public boolean equals(Object b) {
+            if (b == null) return false;
+            if (this == b) return true;
+            if (this.getClass() != b.getClass()) return false;
+            BoardType boardType = (BoardType) b;
             return cols == boardType.cols && rows == boardType.rows;
         }
 
