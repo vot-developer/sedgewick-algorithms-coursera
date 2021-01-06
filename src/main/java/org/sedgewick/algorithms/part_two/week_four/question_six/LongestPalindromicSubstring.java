@@ -16,15 +16,14 @@ public class LongestPalindromicSubstring {
         StringBuilder sb = new StringBuilder(text);
         String reverse = sb.reverse().toString();
         String result = "";
-        int index;
+        String match;
         for (int i = 0; i < reverse.length(); i++) { //time - O(n)
             String pattern = reverse.substring(i);
-            index = foundCommonIndex(pattern); //expected time - O(log(n))
-            if (index == 0) continue;
+            match = foundCommonMatch(pattern); //expected time - O(log(n))
+            if (match.length() == 0) continue;
 
-            String found = cutCommonString(pattern, text.substring(index));
-            if (found.length() > result.length())
-                result = found;
+            if (match.length() > result.length())
+                result = match;
         }
 
         if (result.length() <= 2) return null;
@@ -32,16 +31,17 @@ public class LongestPalindromicSubstring {
     }
 
     //expected time - O(log(n))
-    private int foundCommonIndex(String pattern){
+    private String foundCommonMatch(String pattern){
         int rank = suffixArray.rank(pattern); //time - O(log(n))
         int index1 = countCommonSymbols(rank, pattern);
         int index2 = 0; // two indexes because search don't find full match
         if (rank > 0)
             index2 = countCommonSymbols(rank - 1, pattern);
-        return Math.max(index1, index2);
+        return pattern.substring(0, Math.max(index1, index2));
     }
 
     private int countCommonSymbols(int rank, String pattern) {
+        if (rank >= text.length()) return 0;
         int i;
         String s = text.substring(suffixArray.index(rank));
         for (i = 0; i < Math.min(s.length(), pattern.length()); i++) {
