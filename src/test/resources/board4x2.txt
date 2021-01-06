@@ -1,0 +1,12 @@
+4 2
+A  T
+A  P
+T  I
+E  D
+
+
+TAPIDETA
+0 1
+2 3
+4 5
+6 7
