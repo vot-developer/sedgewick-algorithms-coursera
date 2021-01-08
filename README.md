@@ -185,4 +185,7 @@ by www.coursera.org
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_five/question_one/ChallengingREsTest.java))
 2. [Exponential-size DFA.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_five/question_two)
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_five/question_two/ExponentialSizeDFATest.java))
+3. [Extensions to NFA.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_five/question_three)
+([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_five/question_three/NFATest.java))
+
    
