@@ -183,3 +183,6 @@ by www.coursera.org
 ###### Interview Questions:
 1. [Challenging REs.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_five/question_one)
 ([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_five/question_one/ChallengingREsTest.java))
+2. [Exponential-size DFA.](https://github.com/vot-developer/sedgewick-algorithms-coursera/tree/main/src/main/java/org/sedgewick/algorithms/part_two/week_five/question_two)
+([Tests](https://github.com/vot-developer/sedgewick-algorithms-coursera/blob/main/src/test/java/org/sedgewick/algorithms/part_two/week_five/question_two/ExponentialSizeDFATest.java))
+   
