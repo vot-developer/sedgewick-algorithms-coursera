@@ -13,8 +13,7 @@ public class TernaryHuffman {
     public Map<Character, String> generateCodewords(String s) {
         int[] frequencies = countFrequencies(s);
         Node root = buildTrie(s, frequencies);
-        Map map = generateMap(root);
-        return map;
+        return generateMap(root);
     }
 
     private int[] countFrequencies(String s){
