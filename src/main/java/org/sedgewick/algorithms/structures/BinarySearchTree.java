@@ -1,5 +1,10 @@
 package org.sedgewick.algorithms.structures;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
 public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     Node root;
 
@@ -92,7 +97,33 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> iterable() {
-        return null;
+        List<Key> result = new ArrayList<>();
+        Deque<Node> stack = new ArrayDeque<>();
+        Node current = root;
+        while(current != null || !stack.isEmpty()){
+            while (current != null){
+                stack.addFirst(current);
+                current = current.left;
+            }
+            current = stack.removeFirst();
+            result.add(current.key);
+            current = current.right;
+        }
+        return result;
+    }
+
+    public Iterable<Key> iterableRecursively() {
+        List<Key> result = new ArrayList<>();
+        doIterate(root, result);
+        return result;
+    }
+
+    private void doIterate(Node node, List<Key> keys){
+        if (node == null) return;
+
+        doIterate(node.left, keys);
+        keys.add(node.key);
+        doIterate(node.right, keys);
     }
 
     class Node {
