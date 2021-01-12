@@ -1,17 +1,24 @@
 package org.sedgewick.algorithms.part_two.week_five.question_six;
 
-import java.util.ArrayList;
-import java.util.List;
+import edu.princeton.cs.algs4.RedBlackBST;
 
 public class MoveToFrontCoding {
     private static final int R = 26;
     private static final int SHIFT = 97;
-    private final List<Character> chars;
+    private final int[] charToId;
+    private final RedBlackBST<Integer, Character> ids;
+    private int startId;
+
 
     public MoveToFrontCoding() {
-        this.chars =  new ArrayList<>(R);
-        for (char c = SHIFT; c < SHIFT + R; c++)
-            chars.add(c - SHIFT, c);
+        this.charToId = new int[R];
+        this.ids = new RedBlackBST<>();
+        for (int i = 0; i < R; i++) {
+            int id = i;
+            charToId[i] = id;
+            ids.put(id, (char) (i + SHIFT));
+        }
+        startId = 0;
     }
 
     public String encode(String s){
@@ -24,16 +31,14 @@ public class MoveToFrontCoding {
     }
 
     /*
-    time - O(n), need improve and use tree
+    time - O(log n)
      */
     private int findAndReplaceToFront(char c){
-        int index = -1;
-        for (int i = 0; i < chars.size(); i++)
-            if (chars.get(i) == c)
-                index = i;
-
-        chars.remove(index);
-        chars.add(0, c);
+        int id = charToId[c - SHIFT];
+        int index = ids.rank(id);
+        ids.delete(id);
+        ids.put(--startId, c);
+        charToId[c - SHIFT] = startId;
         return index;
     }
 }
