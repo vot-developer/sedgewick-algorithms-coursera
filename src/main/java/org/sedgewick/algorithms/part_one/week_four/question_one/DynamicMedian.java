@@ -15,45 +15,22 @@ public class DynamicMedian {
     }
 
     public void insert(int value) {
-        if (min.size() == 0) {
-            min.insert(value);
-            return;
-        }
-
-        if (min.size() > 0 && max.size() == 0) {
-            max.insert(value);
-            return;
-        }
-
-        if (value < min.max()) {
-            if (min.size() > max.size()) max.insert(min.delMax());
-            min.insert(value);
-        } else if (value > max.min()) {
-            if (max.size() > min.size()) min.insert(max.delMin());
-            max.insert(value);
-        } else {
-            if (min.size() > max.size()) max.insert(value);
-            else min.size();
-        }
+        min.insert(value);
+        max.insert(min.delMax());
+        if (min.size() < max.size())
+            min.insert(max.delMin());
     }
 
-    public int median() {
+    public double median() {
         if (min.size() == 0) throw new NoSuchElementException();
         if (max.size() > min.size()) return max.min();
         return min.max();
     }
 
     public int removeMedian() {
-        int result = 0;
-        if (max.size() > min.size()) {
-            result = max.delMin();
-            if (max.size() > min.size()) min.insert(max.delMin());
-            return result;
-        }
-
-        result = min.delMax();
-        if (min.size() > max.size()) max.insert(min.delMax());
-
+        int result = min.delMax();
+        if (max.size() > min.size())
+            min.insert(max.delMin());
         return result;
     }
 }
