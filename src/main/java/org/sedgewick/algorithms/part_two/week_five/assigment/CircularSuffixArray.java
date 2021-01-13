@@ -84,16 +84,6 @@ public class CircularSuffixArray {
         return indices[i];
     }
 
-    private class Arg {
-        int start, end, d;
-
-        public Arg(int start, int end, int d) {
-            this.start = start;
-            this.end = end;
-            this.d = d;
-        }
-    }
-
     // unit testing (required)
     public static void main(String[] args) {
     }
