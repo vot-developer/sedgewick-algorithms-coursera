@@ -1,8 +1,6 @@
 # Sedgewick's algorithms 
 by www.coursera.org
 
-# Table of contents
-
 - [Algorithms, Part I](#algorithms-part-i)
     - [Week 1](#week-1)
         - [Union−Find](#unionfind)
