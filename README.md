@@ -1,5 +1,43 @@
 # Sedgewick's algorithms 
 by www.coursera.org
+
+# Table of contents
+
+- [Algorithms, Part I](#algorithms-part-i)
+    - [Week 1](#week-1)
+        - [Union−Find](#unionfind)
+        - [Analysis of Algorithms:](#analysis-of-algorithms)
+    - [Week 2](#week-2)
+        - [Stacks and Queues](#stacks-and-queues)
+        - [Elementary Sorts](#elementary-sorts)
+    - [Week 3](#week-3)
+        - [MergeSort](#mergesort)
+        - [QuickSort](#quicksort)
+    - [Week 4](#week-4)
+        - [Priority Queues](#priority-queues)
+        - [Elementary Symbol Tables](#elementary-symbol-tables)
+    - [Week 5](#week-5)
+        - [Balanced Search Trees](#balanced-search-trees)
+        - [Geometric Applications of BSTs](#geometric-applications-of-bsts)
+    - [Week 6](#week-6)
+        - [Hash Tables](#hash-tables)
+- [Algorithms, Part II](#algorithms-part-ii)
+    - [Week 1](#week-1)
+        - [Undirected Graphs](#undirected-graphs)
+        - [Directed Graphs](#directed-graphs)
+    - [Week 2](#week-2)
+        - [Minimum Spanning Trees](#minimum-spanning-trees)
+        - [Shortest Paths](#shortest-paths)
+    - [Week 3](#week-3)
+        - [Maximum Flow](#maximum-flow)
+        - [Radix Sorts](#radix-sorts)
+    - [Week 4](#week-4)
+        - [Tries](#tries)
+        - [Substring Search](#substring-search)
+    - [Week 5](#week-5)
+        - [Regular Expressions](#regular-expressions)
+        - [Data Compression](#data-compression)
+
 ## Algorithms, Part I
 ### Week 1
 #### Union−Find
