@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class EulerСycle {
+public class EulerCycle {
 
     public boolean isEulerCycle(Graph graph) {
         for (int i = 0; i < graph.V(); i++)

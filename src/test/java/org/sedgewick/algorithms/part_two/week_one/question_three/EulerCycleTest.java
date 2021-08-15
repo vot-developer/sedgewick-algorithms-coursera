@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EulerСycleTest {
+class EulerCycleTest {
     /*
     1 - 0 - 6 - 4 - 5 - 3
        /
@@ -24,7 +24,7 @@ class EulerСycleTest {
      */
     private static Graph graphCycle;
 
-    private static EulerСycle eulerСycle;
+    private static EulerCycle eulerСycle;
 
     @Test
     void isNotEulerCycle() {
@@ -58,6 +58,6 @@ class EulerСycleTest {
         graphCycle.addEdge(4, 5);
         graphCycle.addEdge(4, 6);
 
-        eulerСycle = new EulerСycle();
+        eulerСycle = new EulerCycle();
     }
 }
