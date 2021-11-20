@@ -10,15 +10,15 @@ package org.sedgewick.algorithms.structures;
  * space - O(n)
  */
 public class UnionFind {
-    private final int[] rootIndexes;
+    private final int[] parent;
     private final int[] weights;
 
     public UnionFind(int size) {
-        rootIndexes = new int[size];
+        parent = new int[size];
         weights = new int[size];
 
         for (int i = 0; i < size; i++) {
-            rootIndexes[i] = i;
+            parent[i] = i;
         }
     }
 
@@ -30,10 +30,10 @@ public class UnionFind {
             return;
 
         if (weights[rootA] >= weights[rootB]) {
-            rootIndexes[rootB] = rootIndexes[rootA];
+            parent[rootB] = rootA;
             weights[rootA]++;
         } else {
-            rootIndexes[rootA] = rootIndexes[rootB];
+            parent[rootA] = rootB;
             weights[rootB]++;
         }
     }
@@ -46,9 +46,9 @@ public class UnionFind {
     }
 
     private int findRoot(int i) {
-        while (rootIndexes[i] != i) {
+        while (parent[i] != i) {
             //rootIndexes[i] = rootIndexes[rootIndexes[i]]; //time will be - O(log* n)
-            i = rootIndexes[i];
+            i = parent[i];
         }
         return i;
     }
