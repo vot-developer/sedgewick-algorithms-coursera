@@ -25,6 +25,9 @@ public class QuickSortLoop {
         }
         swap(i, r, arr);
 
+        //l <= x <= i : values <= pivot
+        // i < x <= r : values > pivot
+
         quickSort(l, i - 1, arr);
         quickSort(i + 1, r, arr);
     }
